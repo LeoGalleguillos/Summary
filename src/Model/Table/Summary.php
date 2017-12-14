@@ -1,6 +1,7 @@
 <?php
 namespace LeoGalleguillos\Summary\Model\Table;
 
+use ArrayObject;
 use Zend\Db\Adapter\Adapter;
 
 class Summary
@@ -41,5 +42,23 @@ class Summary
         ';
         $row = $this->adapter->query($sql)->execute()->current();
         return (int) $row['count'];
+    }
+
+    /**
+     * @return ArrayObject
+     */
+    public function selectWhereSummaryId($summaryId) : ArrayObject
+    {
+        $sql = '
+            SELECT `summary`.`summary_id`
+                 , `summary`.`title`
+                 , `summary`.`body`
+              FROM `summary`
+             WHERE `summary`.`summary_id` = ?
+                 ;
+        ';
+        $result = $this->adapter->query($sql, [$summaryId])->current();
+
+        return $result;
     }
 }

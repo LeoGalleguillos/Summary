@@ -1,6 +1,7 @@
 <?php
 namespace LeoGalleguillos\SummaryTest\Model\Table;
 
+use ArrayObject;
 use LeoGalleguillos\Summary\Model\Table\Summary as SummaryTable;
 use Zend\Db\Adapter\Adapter;
 use PHPUnit\Framework\TestCase;
@@ -73,6 +74,39 @@ class SummaryTest extends TestCase
         $this->assertSame(
             0,
             $this->summaryTable->selectCount()
+        );
+    }
+
+    public function testSelectWhereSummaryId()
+    {
+        $this->summaryTable->insert(
+            'title',
+            'body'
+        );
+
+        $this->summaryTable->insert(
+            'My Amazing Summary',
+            'This is the best summary every written.'
+        );
+
+        $arrayObject = new ArrayObject([
+            'summary_id' => '1',
+            'title'      => 'title',
+            'body'       => 'body',
+        ]);
+        $this->assertEquals(
+            $arrayObject,
+            $this->summaryTable->selectWhereSummaryId(1)
+        );
+
+        $arrayObject = new ArrayObject([
+            'summary_id' => '2',
+            'title'      => 'My Amazing Summary',
+            'body'       => 'This is the best summary every written.',
+        ]);
+        $this->assertEquals(
+            $arrayObject,
+            $this->summaryTable->selectWhereSummaryId(2)
         );
     }
 }
