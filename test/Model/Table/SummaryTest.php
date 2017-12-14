@@ -48,19 +48,22 @@ class SummaryTest extends TestCase
     public function testInsert()
     {
         $this->summaryTable->insert(
-            'artist',
             'title',
-            'featured artists'
+            'body'
         );
 
         $this->summaryTable->insert(
-            'Rihanna',
-            'Work',
-            'Drake'
+            'My Amazing Summary',
+            'This is the best summary every written.'
+        );
+
+        $this->summaryTable->insert(
+            'One More',
+            'This is the second-best summary every written.'
         );
 
         $this->assertSame(
-            2,
+            3,
             $this->summaryTable->selectCount()
         );
     }

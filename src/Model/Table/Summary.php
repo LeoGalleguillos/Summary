@@ -14,20 +14,18 @@ class Summary
      * @return int Primary key
      */
     public function insert(
-        string $artist,
         string $title,
-        string $featuredArtists
+        string $body
     ) {
         $sql = '
             INSERT
-              INTO `summary` (`artist`, `title`, `featured_artists`)
-            VALUES (?, ?, ?)
+              INTO `summary` (`title`, `body`)
+            VALUES (?, ?)
                  ;
         ';
         $parameters = [
-            $artist,
             $title,
-            $featuredArtists,
+            $body,
         ];
         return $this->adapter
                     ->query($sql, $parameters)
