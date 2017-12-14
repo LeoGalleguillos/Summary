@@ -6,8 +6,9 @@ use LeoGalleguillos\Summary\Model\Table\Summary as SummaryTable;
 
 class Summary
 {
-    public function __construct()
-    {
+    public function __construct(
+        SummaryTable $summaryTable
+    ) {
 
     }
 }
