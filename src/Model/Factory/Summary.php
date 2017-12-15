@@ -10,7 +10,7 @@ class Summary
     public function __construct(
         SummaryTable $summaryTable
     ) {
-
+        $this->summaryTable = $summaryTable;
     }
 
     public function buildFromArrayObject(ArrayObject $arrayObject)
@@ -20,5 +20,11 @@ class Summary
         $summaryEntity->title     = $arrayObject['title'];
         $summaryEntity->body      = $arrayObject['body'];
         return $summaryEntity;
+    }
+
+    public function buildFromSummaryId(int $summaryId)
+    {
+        $arrayObject = $this->summaryTable->selectWhereSummaryId($summaryId);
+        return $this->buildFromArrayObject($arrayObject);
     }
 }
