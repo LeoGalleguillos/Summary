@@ -12,7 +12,9 @@ class Module
         return [
             'factories' => [
                 SummaryFactory::class => function ($serviceManager) {
-                    return new SummaryFactory();
+                    return new SummaryFactory(
+                        $serviceManager->get(SummaryTable::class)
+                    );
                 },
                 SummaryService::class => function ($serviceManager) {
                     return new SummaryService();
