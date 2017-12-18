@@ -16,17 +16,19 @@ class Source
      */
     public function insert(
         int $summaryId,
-        string $url
+        string $url,
+        string $title
     ) {
         $sql = '
             INSERT
-              INTO `source` (`summary_id`, `url`)
-            VALUES (?, ?)
+              INTO `source` (`summary_id`, `url`, `title`)
+            VALUES (?, ?, ?)
                  ;
         ';
         $parameters = [
             $summaryId,
             $url,
+            $title,
         ];
         return $this->adapter
                     ->query($sql, $parameters)
@@ -53,6 +55,7 @@ class Source
             SELECT `source`.`source_id`
                  , `source`.`summary_id`
                  , `source`.`url`
+                 , `source`.`title`
               FROM `source`
              WHERE `source`.`summary_id` = ?
                  ;

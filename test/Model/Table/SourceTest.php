@@ -50,17 +50,20 @@ class SourceTest extends TestCase
     {
         $this->sourceTable->insert(
             1,
-            'url'
+            'url',
+            'title'
         );
 
         $this->sourceTable->insert(
             1,
-            'the best source ever'
+            'the best source ever',
+            'title of the best source ever'
         );
 
         $this->sourceTable->insert(
             2,
-            'This is the second-best source ever cited'
+            'This is the second-best source ever cited',
+            'yet another title'
         );
 
         $this->assertSame(
@@ -81,32 +84,38 @@ class SourceTest extends TestCase
     {
         $this->sourceTable->insert(
             1,
-            'url'
+            'url',
+            'title'
         );
         $arrayObject1 = new ArrayObject([
             'source_id' => 1,
             'summary_id' => 1,
             'url' => 'url',
+            'title' => 'title',
         ]);
 
         $this->sourceTable->insert(
             1,
-            'the best source ever'
+            'the best source ever',
+            'title for the best source ever'
         );
         $arrayObject2 = new ArrayObject([
             'source_id' => 2,
             'summary_id' => 1,
             'url' => 'the best source ever',
+            'title' => 'title for the best source ever',
         ]);
 
         $this->sourceTable->insert(
             2,
-            'source for another summary ID'
+            'source for another summary ID',
+             'yet another title'
         );
         $arrayObject3 = new ArrayObject([
             'source_id' => 3,
             'summary_id'      => 2,
             'url' => 'source for another summary ID',
+            'title' => 'yet another title',
         ]);
 
         $arrayObjects = new ArrayObject();
