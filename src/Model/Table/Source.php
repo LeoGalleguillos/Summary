@@ -49,7 +49,26 @@ class Source
     /**
      * @return ArrayObject
      */
-    public function selectWhereSummaryId($summaryId) : ArrayObject
+    public function selectWhereSourceId(int $sourceId) : ArrayObject
+    {
+        $sql = '
+            SELECT `source`.`source_id`
+                 , `source`.`summary_id`
+                 , `source`.`url`
+                 , `source`.`title`
+              FROM `source`
+             WHERE `source`.`source_id` = ?
+                 ;
+        ';
+        $result = $this->adapter->query($sql, [$sourceId])->current();
+
+        return $result;
+    }
+
+    /**
+     * @return ArrayObject
+     */
+    public function selectWhereSummaryId(int $summaryId) : ArrayObject
     {
         $sql = '
             SELECT `source`.`source_id`

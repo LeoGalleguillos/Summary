@@ -80,6 +80,43 @@ class SourceTest extends TestCase
         );
     }
 
+    public function testSelectWhereSourceId()
+    {
+        $this->sourceTable->insert(
+            3,
+            'url',
+            'title'
+        );
+
+        $this->sourceTable->insert(
+            3,
+            'another url',
+            'another title'
+        );
+
+        $arrayObject = new ArrayObject([
+            'source_id'  => '1',
+            'summary_id' => '3',
+            'url'        => 'url',
+            'title'      => 'title',
+        ]);
+        $this->assertEquals(
+            $arrayObject,
+            $this->sourceTable->selectWhereSourceId(1)
+        );
+
+        $arrayObject = new ArrayObject([
+            'source_id'  => '2',
+            'summary_id' => '3',
+            'url'        => 'another url',
+            'title'      => 'another title',
+        ]);
+        $this->assertEquals(
+            $arrayObject,
+            $this->sourceTable->selectWhereSourceId(2)
+        );
+    }
+
     public function testSelectWhereSummaryId()
     {
         $this->sourceTable->insert(
