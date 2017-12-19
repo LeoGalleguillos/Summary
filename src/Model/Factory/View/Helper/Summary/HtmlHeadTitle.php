@@ -1,5 +1,5 @@
 <?php
-namespace LeoGalleguillos\Summary\Model\Factory\View\Helper;
+namespace LeoGalleguillos\Summary\Model\Factory\View\Helper\Summary;
 
 use Interop\Container\ContainerInterface;
 use LeoGalleguillos\Summary\View\Helper\Summary\HtmlHeadTitle as HtmlHeadTitleHelper;
