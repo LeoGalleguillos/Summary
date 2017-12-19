@@ -1,5 +1,5 @@
 <?php
-namespace LeoGalleguillos\Summary\View\Helper;
+namespace LeoGalleguillos\Summary\View\Helper\Summary;
 
 use Zend\View\Helper\AbstractHelper;
 
