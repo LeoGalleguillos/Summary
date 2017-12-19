@@ -1,21 +1,33 @@
 <?php
 namespace LeoGalleguillos\Summary\Model\Service;
 
+use LeoGalleguillos\Summary\Model\Entity\Source as SourceEntity;
 use LeoGalleguillos\Summary\Model\Entity\Summary as SummaryEntity;
+use LeoGalleguillos\Summary\Model\Factory\Source as SourceFactory;
+use LeoGalleguillos\Summary\Model\Table\Source as SourceTable;
 
 class Summary
 {
+    public function __construct(
+        SourceFactory $sourceFactory,
+        SourceTable $sourceTable
+    ) {
+        $this->sourceFactory = $sourceFactory;
+        $this->sourceTable   = $sourceTable;
+    }
+
     /**
-     * Get full name.
+     * Get source entities.
      *
-     * @return string
+     * @return SourceEntity[]
      */
-    public function getFullName(SummaryEntity $summaryEntity)
+    public function getSourceEntities(SummaryEntity $summaryEntity) : array
     {
-        $fullName = $summaryEntity->artist . ' - ' . $summaryEntity->title;
-        if ($summaryEntity->featuredArtists) {
-            $fullName .= ' (ft ' . $summaryEntity->featuredArtists . ')';
+        $sourceEntities = [];
+        $sourceArrays = $this->sourceTable->selectWhereSummaryId($summaryEntity->summaryId);
+        foreach ($sourceArrays as $sourceArray) {
+            $sourceEntities[] = $this->sourceFactory->buildFromArrayObject($sourceArray);
         }
-        return $fullName;
+        return $sourceEntities;
     }
 }
