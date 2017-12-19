@@ -13,6 +13,11 @@ class Module
     {
         return [
             'factories' => [
+                SourceFactory::class => function ($serviceManager) {
+                    return new SourceFactory(
+                        $serviceManager->get(SourceTable::class)
+                    );
+                },
                 SummaryFactory::class => function ($serviceManager) {
                     return new SummaryFactory(
                         $serviceManager->get(SummaryTable::class)
@@ -22,6 +27,11 @@ class Module
                     return new SummaryService(
                         $serviceManager->get(SourceFactory::class),
                         $serviceManager->get(SourceTable::class)
+                    );
+                },
+                SourceTable::class => function ($serviceManager) {
+                    return new SourceTable(
+                        $serviceManager->get('main')
                     );
                 },
                 SummaryTable::class => function ($serviceManager) {
