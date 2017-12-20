@@ -1,6 +1,7 @@
 <?php
 namespace LeoGalleguillos\Summary\View\Helper\Summary;
 
+use LeoGalleguillos\Summary\Model\Entity\Summary as SummaryEntity;
 use Zend\View\Helper\AbstractHelper;
 
 class HtmlHeadTitle extends AbstractHelper
@@ -14,8 +15,8 @@ class HtmlHeadTitle extends AbstractHelper
         return $this;
     }
 
-    public function getHtmlHeadTitle()
+    public function getHtmlHeadTitle(SummaryEntity $summaryEntity) : string
     {
-        return 'wow';
+        return 'So, to summarize, ' . $summaryEntity->title;
     }
 }
