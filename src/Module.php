@@ -55,7 +55,7 @@ class Module
                     );
                 },
                 SummarySlugService::class => function ($serviceManager) {
-                    return new SummaryService(
+                    return new SummarySlugService(
                         $serviceManager->get(UrlFriendlyService::class)
                     );
                 },
