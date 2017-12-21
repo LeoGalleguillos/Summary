@@ -34,6 +34,22 @@ class OgTest extends TestCase
         );
     }
 
+    public function testGetOgImageHeight()
+    {
+        $this->assertSame(
+            100,
+            $this->ogHelper->getOgImageHeight($this->summaryEntity)
+        );
+    }
+
+    public function testGetOgImageWidth()
+    {
+        $this->assertSame(
+            200,
+            $this->ogHelper->getOgImageWidth($this->summaryEntity)
+        );
+    }
+
     public function testGetOgImage()
     {
         $_SERVER['HTTP_HOST'] = 'my.http.host';

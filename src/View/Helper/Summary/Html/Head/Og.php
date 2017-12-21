@@ -27,6 +27,16 @@ class Og extends AbstractHelper
              . $summaryEntity->thumbnail->rootRelativePath;
     }
 
+    public function getOgImageHeight(SummaryEntity $summaryEntity) : int
+    {
+        return $summaryEntity->thumbnail->height;
+    }
+
+    public function getOgImageWidth(SummaryEntity $summaryEntity) : int
+    {
+        return $summaryEntity->thumbnail->width;
+    }
+
     public function getOgType(SummaryEntity $summaryEntity) : string
     {
         return 'article';
