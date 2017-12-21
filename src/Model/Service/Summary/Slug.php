@@ -1,12 +1,15 @@
 <?php
 namespace LeoGalleguillos\Summary\Model\Service\Summary;
 
+use LeoGalleguillos\String\Model\Service\UrlFriendly as UrlFriendlyService;
 use LeoGalleguillos\Summary\Model\Entity\Summary as SummaryEntity;
 
 class Slug
 {
     public function __construct(
+        UrlFriendlyService $urlFriendlyService
     ) {
+        $this->urlFriendlyService = $urlFriendlyService;
     }
 
     /**
@@ -16,6 +19,6 @@ class Slug
      */
     public function getSlug(SummaryEntity $summaryEntity) : string
     {
-        return 'wow';
+        return $this->urlFriendlyService->getUrlFriendly($summaryEntity->title);
     }
 }
