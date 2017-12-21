@@ -10,6 +10,7 @@ use LeoGalleguillos\Summary\Model\Factory\View\Helper\Summary\HtmlHeadTitle as H
 use LeoGalleguillos\Summary\Model\Service\Summary as SummaryService;
 use LeoGalleguillos\Summary\Model\Service\Summary\RootRelativeUrl as SummaryRootRelativeUrlService;
 use LeoGalleguillos\Summary\Model\Service\Summary\Slug as SummarySlugService;
+use LeoGalleguillos\Summary\Model\Service\Summary\Url as SummaryUrlService;
 use LeoGalleguillos\Summary\Model\Table\Source as SourceTable;
 use LeoGalleguillos\Summary\Model\Table\Summary as SummaryTable;
 
@@ -56,6 +57,11 @@ class Module
                 SummarySlugService::class => function ($serviceManager) {
                     return new SummaryService(
                         $serviceManager->get(UrlFriendlyService::class)
+                    );
+                },
+                SummaryUrlService::class => function ($serviceManager) {
+                    return new SummaryUrlService(
+                        $serviceManager->get(SummaryRootRelativeUrlService::class)
                     );
                 },
                 SourceTable::class => function ($serviceManager) {
