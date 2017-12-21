@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "bfcc008dbdf1b9864e5ad0b4186478ca",
-    "content-hash": "c240f7dd2cd9d666c8fcd37c7b8a7989",
+    "hash": "3a78d82b1f785e72b695c3af35f840a3",
+    "content-hash": "7419913dbb2d44da35334b4c4dd42ce3",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -121,6 +121,36 @@
                 "MIT"
             ],
             "time": "2017-12-21 06:27:16"
+        },
+        {
+            "name": "leo-galleguillos/string",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/LeoGalleguillos/String.git",
+                "reference": "6a1582f46e849f8c1e94142530b803b75e8bd900"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/LeoGalleguillos/String/zipball/6a1582f46e849f8c1e94142530b803b75e8bd900",
+                "reference": "6a1582f46e849f8c1e94142530b803b75e8bd900",
+                "shasum": ""
+            },
+            "require": {
+                "zendframework/zend-test": "^3.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "LeoGalleguillos\\String\\": "src/",
+                    "LeoGalleguillos\\StringTest\\": "test/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "time": "2017-12-08 21:01:33"
         },
         {
             "name": "myclabs/deep-copy",
@@ -2565,7 +2595,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "leo-galleguillos/image": 20
+        "leo-galleguillos/image": 20,
+        "leo-galleguillos/string": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

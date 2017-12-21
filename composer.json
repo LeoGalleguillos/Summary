@@ -10,6 +10,7 @@
     "require": {
         "zendframework/zend-test": "^3.1",
         "zendframework/zend-db": "^2.9",
-        "leo-galleguillos/image": "dev-master"
+        "leo-galleguillos/image": "dev-master",
+        "leo-galleguillos/string": "dev-master"
     }
 }
