@@ -3,6 +3,7 @@ namespace LeoGalleguillos\Summary;
 
 use LeoGalleguillos\Summary\Model\Factory\Source as SourceFactory;
 use LeoGalleguillos\Summary\Model\Factory\Summary as SummaryFactory;
+use LeoGalleguillos\Summary\Model\Factory\View\Helper\Summary\Html\Head\Og as OgHelperFactory;
 use LeoGalleguillos\Summary\Model\Factory\View\Helper\Summary\HtmlHeadTitle as HtmlHeadTitleHelperFactory;
 use LeoGalleguillos\Summary\Model\Service\Summary as SummaryService;
 use LeoGalleguillos\Summary\Model\Table\Source as SourceTable;
@@ -15,6 +16,7 @@ class Module
         return [
             'view_helpers' => [
                 'factories' => [
+                    'summaryOg'            => OgHelperFactory::class,
                     'summaryHtmlHeadTitle' => HtmlHeadTitleHelperFactory::class,
                 ],
             ],
