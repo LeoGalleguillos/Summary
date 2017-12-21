@@ -4,6 +4,7 @@ namespace LeoGalleguillos\Summary;
 use LeoGalleguillos\String\Model\Service\UrlFriendly as UrlFriendlyService;
 use LeoGalleguillos\Summary\Model\Factory\Source as SourceFactory;
 use LeoGalleguillos\Summary\Model\Factory\Summary as SummaryFactory;
+use LeoGalleguillos\Summary\Model\Factory\View\Helper\Summary\FacebookShareUrl as FacebookShareUrlHelperFactory;
 use LeoGalleguillos\Summary\Model\Factory\View\Helper\Summary\Html\Head\Og as OgHelperFactory;
 use LeoGalleguillos\Summary\Model\Factory\View\Helper\Summary\HtmlHeadTitle as HtmlHeadTitleHelperFactory;
 use LeoGalleguillos\Summary\Model\Service\Summary as SummaryService;
@@ -19,6 +20,7 @@ class Module
         return [
             'view_helpers' => [
                 'factories' => [
+                    'facebookShareUrl'     => FacebookShareUrlHelperFactory::class,
                     'summaryOg'            => OgHelperFactory::class,
                     'summaryHtmlHeadTitle' => HtmlHeadTitleHelperFactory::class,
                 ],
