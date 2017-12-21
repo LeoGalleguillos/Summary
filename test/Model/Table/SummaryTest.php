@@ -93,6 +93,9 @@ class SummaryTest extends TestCase
             'summary_id' => '1',
             'title'      => 'title',
             'body'       => 'body',
+            'thumbnail_root_relative_path' => null,
+            'thumbnail_width' => null,
+            'thumbnail_height' => null,
         ]);
         $this->assertEquals(
             $arrayObject,
@@ -103,6 +106,9 @@ class SummaryTest extends TestCase
             'summary_id' => '2',
             'title'      => 'My Amazing Summary',
             'body'       => 'This is the best summary every written.',
+            'thumbnail_root_relative_path' => null,
+            'thumbnail_width' => null,
+            'thumbnail_height' => null,
         ]);
         $this->assertEquals(
             $arrayObject,
