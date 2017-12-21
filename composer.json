@@ -1,14 +1,16 @@
 {
-    "name": "leo-galleguillos/summary",
-    "license": "MIT",
-    "require": {
-        "zendframework/zend-test": "^3.1",
-        "zendframework/zend-db": "^2.9"
-    },
     "autoload": {
         "psr-4": {
             "LeoGalleguillos\\Summary\\": "src/",
             "LeoGalleguillos\\SummaryTest\\": "test/"
         }
+    },
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "name": "leo-galleguillos/summary",
+    "require": {
+        "zendframework/zend-test": "^3.1",
+        "zendframework/zend-db": "^2.9",
+        "leo-galleguillos/image": "dev-master"
     }
 }

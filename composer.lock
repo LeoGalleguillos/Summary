@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a04260635646175ed73b984c17a60263",
-    "content-hash": "fed1899fa4fc444385878e4c5bdaea1f",
+    "hash": "febc04d216d7e1631f1d9bc99ba75cf3",
+    "content-hash": "f621887ab667603042894f6a6a38cf41",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -91,6 +91,36 @@
                 "instantiate"
             ],
             "time": "2015-06-14 21:17:01"
+        },
+        {
+            "name": "leo-galleguillos/image",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/LeoGalleguillos/Image.git",
+                "reference": "ea511c1a39e164613543d9249a662ac4d2f6aaa5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/LeoGalleguillos/Image/zipball/ea511c1a39e164613543d9249a662ac4d2f6aaa5",
+                "reference": "ea511c1a39e164613543d9249a662ac4d2f6aaa5",
+                "shasum": ""
+            },
+            "require": {
+                "zendframework/zend-test": "^3.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "LeoGalleguillos\\Image\\": "src/",
+                    "LeoGalleguillos\\ImageTest\\": "test/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "time": "2017-12-21 06:27:16"
         },
         {
             "name": "myclabs/deep-copy",
@@ -2533,8 +2563,10 @@
     ],
     "packages-dev": [],
     "aliases": [],
-    "minimum-stability": "stable",
-    "stability-flags": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "leo-galleguillos/image": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
