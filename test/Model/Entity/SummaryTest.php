@@ -18,8 +18,9 @@ class SummaryTest extends TestCase
 
     public function testAttributes()
     {
-        $this->assertObjectHasAttribute('summaryId', $this->summaryEntity);
-        $this->assertObjectHasAttribute('title', $this->summaryEntity);
         $this->assertObjectHasAttribute('body', $this->summaryEntity);
+        $this->assertObjectHasAttribute('summaryId', $this->summaryEntity);
+        $this->assertObjectHasAttribute('thumbnail', $this->summaryEntity);
+        $this->assertObjectHasAttribute('title', $this->summaryEntity);
     }
 }
