@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "febc04d216d7e1631f1d9bc99ba75cf3",
-    "content-hash": "f621887ab667603042894f6a6a38cf41",
+    "hash": "bfcc008dbdf1b9864e5ad0b4186478ca",
+    "content-hash": "c240f7dd2cd9d666c8fcd37c7b8a7989",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -2563,7 +2563,7 @@
     ],
     "packages-dev": [],
     "aliases": [],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "stability-flags": {
         "leo-galleguillos/image": 20
     },

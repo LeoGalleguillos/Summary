@@ -6,7 +6,6 @@
         }
     },
     "license": "MIT",
-    "minimum-stability": "dev",
     "name": "leo-galleguillos/summary",
     "require": {
         "zendframework/zend-test": "^3.1",
