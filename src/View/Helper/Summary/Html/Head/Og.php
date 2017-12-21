@@ -20,6 +20,13 @@ class Og extends AbstractHelper
         return 'So, to summarize, ' . $summaryEntity->title;
     }
 
+    public function getOgImage(SummaryEntity $summaryEntity) : string
+    {
+        return 'https://'
+             . $_SERVER['HTTP_HOST']
+             . $summaryEntity->thumbnail->rootRelativePath;
+    }
+
     public function getOgType(SummaryEntity $summaryEntity) : string
     {
         return 'article';

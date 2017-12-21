@@ -1,6 +1,7 @@
 <?php
 namespace LeoGalleguillos\SummaryTest\View\Helper\Summary\Html\Head;
 
+use LeoGalleguillos\Image\Model\Entity\Image as ImageEntity;
 use LeoGalleguillos\Summary\Model\Entity\Summary as SummaryEntity;
 use LeoGalleguillos\Summary\View\Helper\Summary\Html\Head\Og as OgHelper;
 use PHPUnit\Framework\TestCase;
@@ -11,6 +12,11 @@ class OgTest extends TestCase
     {
         $this->summaryEntity        = new SummaryEntity();
         $this->summaryEntity->title = 'Hello world!';
+
+        $this->summaryEntity->thumbnail                   = new ImageEntity();
+        $this->summaryEntity->thumbnail->rootRelativePath = '/path/to/image.jpg';
+        $this->summaryEntity->thumbnail->width            = 200;
+        $this->summaryEntity->thumbnail->height           = 100;
 
         $this->ogHelper = new OgHelper();
     }
@@ -25,6 +31,16 @@ class OgTest extends TestCase
         $this->assertSame(
             'So, to summarize, Hello world!',
             $this->ogHelper->getOgDescription($this->summaryEntity)
+        );
+    }
+
+    public function testGetOgImage()
+    {
+        $_SERVER['HTTP_HOST'] = 'my.http.host';
+
+        $this->assertSame(
+            'https://my.http.host/path/to/image.jpg',
+            $this->ogHelper->getOgImage($this->summaryEntity)
         );
     }
 
