@@ -2,8 +2,9 @@
 namespace LeoGalleguillos\Summary\Model\Factory\View\Helper\Summary;
 
 use Interop\Container\ContainerInterface;
+use LeoGalleguillos\Facebook\View\Helper\ShareUrl as FacebookShareUrlHelper;
 use LeoGalleguillos\Summary\Model\Service\Summary\Url as SummaryUrlService;
-use LeoGalleguillos\Summary\View\Helper\Summary\FacebookShareUrl as FacebookShareUrlHelper;
+use LeoGalleguillos\Summary\View\Helper\Summary\FacebookShareUrl as SummaryFacebookShareUrlHelper;
 use Zend\ServiceManager\Factory\FactoryInterface;
 
 class FacebookShareUrl implements FactoryInterface
@@ -13,7 +14,9 @@ class FacebookShareUrl implements FactoryInterface
         $requestedName,
         array $options = null
     ) {
-        return new FacebookShareUrlHelper(
+        $viewHelperManager = $container->get('ViewHelperManager');
+        return new SummaryFacebookShareUrlHelper(
+            $viewHelperManager->get(FacebookShareUrlHelper::class),
             $container->get(SummaryUrlService::class)
         );
     }

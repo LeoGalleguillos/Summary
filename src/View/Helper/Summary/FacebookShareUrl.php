@@ -1,6 +1,7 @@
 <?php
 namespace LeoGalleguillos\Summary\View\Helper\Summary;
 
+use LeoGalleguillos\Facebook\View\Helper\ShareUrl as FacebookShareUrlHelper;
 use LeoGalleguillos\Summary\Model\Entity\Summary as SummaryEntity;
 use LeoGalleguillos\Summary\Model\Service\Summary\Url as SummaryUrlService;
 use Zend\View\Helper\AbstractHelper;
@@ -8,9 +9,11 @@ use Zend\View\Helper\AbstractHelper;
 class FacebookShareUrl extends AbstractHelper
 {
     public function __construct(
+        FacebookShareUrlHelper $facebookShareUrlHelper,
         SummaryUrlService $summaryUrlService
     ) {
-        $this->summaryUrlService = $summaryUrlService;
+        $this->facebookShareUrlHelper = $facebookShareUrlHelper;
+        $this->summaryUrlService      = $summaryUrlService;
     }
 
     public function __invoke()
@@ -20,7 +23,8 @@ class FacebookShareUrl extends AbstractHelper
 
     public function getFacebookShareUrl(SummaryEntity $summaryEntity) : string
     {
-        return 'https://www.facebook.com/sharer/sharer.php?u='
-             . urlencode($this->summaryUrlService->getUrl($summaryEntity));
+        return $this->facebookShareUrlHelper->getShareUrl(
+            $this->summaryUrlService->getUrl($summaryEntity)
+        );
     }
 }
