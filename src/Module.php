@@ -21,7 +21,7 @@ class Module
         return [
             'view_helpers' => [
                 'factories' => [
-                    'facebookShareUrl'     => FacebookShareUrlHelperFactory::class,
+                    'summaryFacebookShareUrl'     => FacebookShareUrlHelperFactory::class,
                     'summaryOg'            => OgHelperFactory::class,
                     'summaryHtmlHeadTitle' => HtmlHeadTitleHelperFactory::class,
                 ],
