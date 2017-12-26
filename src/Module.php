@@ -5,6 +5,7 @@ use LeoGalleguillos\String\Model\Service\UrlFriendly as UrlFriendlyService;
 use LeoGalleguillos\Summary\Model\Factory\Source as SourceFactory;
 use LeoGalleguillos\Summary\Model\Factory\Summary as SummaryFactory;
 use LeoGalleguillos\Summary\Model\Factory\View\Helper\Summary\FacebookShareUrl as FacebookShareUrlHelperFactory;
+use LeoGalleguillos\Summary\Model\Factory\View\Helper\Summary\TwitterShareUrl as TwitterShareUrlHelperFactory;
 use LeoGalleguillos\Summary\Model\Factory\View\Helper\Summary\Html\Head\Og as OgHelperFactory;
 use LeoGalleguillos\Summary\Model\Factory\View\Helper\Summary\HtmlHeadTitle as HtmlHeadTitleHelperFactory;
 use LeoGalleguillos\Summary\Model\Service\Summary as SummaryService;
@@ -14,6 +15,7 @@ use LeoGalleguillos\Summary\Model\Service\Summary\Url as SummaryUrlService;
 use LeoGalleguillos\Summary\Model\Table\Source as SourceTable;
 use LeoGalleguillos\Summary\Model\Table\Summary as SummaryTable;
 use LeoGalleguillos\Summary\View\Helper\Summary\FacebookShareUrl as FacebookShareUrlHelper;
+use LeoGalleguillos\Summary\View\Helper\Summary\TwitterShareUrl as TwitterShareUrlHelper;
 
 class Module
 {
@@ -22,10 +24,12 @@ class Module
         return [
             'view_helpers' => [
                 'aliases' => [
-                    'summaryShareUrl' => FacebookShareUrlHelper::class,
+                    'summaryFacebookShareUrl' => FacebookShareUrlHelper::class,
+                    'summaryTwitterShareUrl'  => TwitterShareUrlHelper::class,
                 ],
                 'factories' => [
                     FacebookShareUrlHelper::class => FacebookShareUrlHelperFactory::class,
+                    TwitterShareUrlHelper::class  => TwitterShareUrlHelperFactory::class,
                     'summaryOg'                   => OgHelperFactory::class,
                     'summaryHtmlHeadTitle'        => HtmlHeadTitleHelperFactory::class,
                 ],
