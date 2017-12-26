@@ -13,6 +13,7 @@ use LeoGalleguillos\Summary\Model\Service\Summary\Slug as SummarySlugService;
 use LeoGalleguillos\Summary\Model\Service\Summary\Url as SummaryUrlService;
 use LeoGalleguillos\Summary\Model\Table\Source as SourceTable;
 use LeoGalleguillos\Summary\Model\Table\Summary as SummaryTable;
+use LeoGalleguillos\Summary\View\Helper\Summary\FacebookShareUrl as FacebookShareUrlHelper;
 
 class Module
 {
@@ -20,10 +21,13 @@ class Module
     {
         return [
             'view_helpers' => [
+                'aliases' => [
+                    'summaryShareUrl' => FacebookShareUrlHelper::class,
+                ],
                 'factories' => [
-                    'summaryFacebookShareUrl'     => FacebookShareUrlHelperFactory::class,
-                    'summaryOg'            => OgHelperFactory::class,
-                    'summaryHtmlHeadTitle' => HtmlHeadTitleHelperFactory::class,
+                    FacebookShareUrlHelper::class => FacebookShareUrlHelperFactory::class,
+                    'summaryOg'                   => OgHelperFactory::class,
+                    'summaryHtmlHeadTitle'        => HtmlHeadTitleHelperFactory::class,
                 ],
             ],
         ];
