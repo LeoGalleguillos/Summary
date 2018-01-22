@@ -15,18 +15,16 @@ class Summary
      * @return int Primary key
      */
     public function insert(
-        string $title,
-        string $body
+        int $webpageId
     ) {
         $sql = '
             INSERT
-              INTO `summary` (`title`, `body`)
-            VALUES (?, ?)
+              INTO `summary` (`webpage_id`)
+            VALUES (?)
                  ;
         ';
         $parameters = [
-            $title,
-            $body,
+            $webpageId,
         ];
         return $this->adapter
                     ->query($sql, $parameters)
@@ -51,11 +49,7 @@ class Summary
     {
         $sql = '
             SELECT `summary`.`summary_id`
-                 , `summary`.`title`
-                 , `summary`.`body`
-                 , `summary`.`thumbnail_root_relative_path`
-                 , `summary`.`thumbnail_width`
-                 , `summary`.`thumbnail_height`
+                 , `summary`.`webpage_id`
               FROM `summary`
              WHERE `summary`.`summary_id` = ?
                  ;

@@ -20,9 +20,9 @@ class SummaryTest extends TestCase
 
     protected function setUp()
     {
-        $configArray     = require(__DIR__ . '/../../../config/autoload/local.php');
-        $configArray     = $configArray['db']['adapters']['leogalle_test'];
-        $this->adapter         = new Adapter($configArray);
+        $configArray        = require(__DIR__ . '/../../../config/autoload/local.php');
+        $configArray        = $configArray['db']['adapters']['leogalle_test'];
+        $this->adapter      = new Adapter($configArray);
         $this->summaryTable = new SummaryTable($this->adapter);
 
         $this->dropTable();
@@ -49,22 +49,11 @@ class SummaryTest extends TestCase
     public function testInsert()
     {
         $this->summaryTable->insert(
-            'title',
-            'body'
-        );
-
-        $this->summaryTable->insert(
-            'My Amazing Summary',
-            'This is the best summary every written.'
-        );
-
-        $this->summaryTable->insert(
-            'One More',
-            'This is the second-best summary every written.'
+            1
         );
 
         $this->assertSame(
-            3,
+            1,
             $this->summaryTable->selectCount()
         );
     }
@@ -80,39 +69,16 @@ class SummaryTest extends TestCase
     public function testSelectWhereSummaryId()
     {
         $this->summaryTable->insert(
-            'title',
-            'body'
-        );
-
-        $this->summaryTable->insert(
-            'My Amazing Summary',
-            'This is the best summary every written.'
+            1
         );
 
         $arrayObject = new ArrayObject([
             'summary_id' => '1',
-            'title'      => 'title',
-            'body'       => 'body',
-            'thumbnail_root_relative_path' => null,
-            'thumbnail_width' => null,
-            'thumbnail_height' => null,
+            'webpage_id' => '1',
         ]);
         $this->assertEquals(
             $arrayObject,
             $this->summaryTable->selectWhereSummaryId(1)
-        );
-
-        $arrayObject = new ArrayObject([
-            'summary_id' => '2',
-            'title'      => 'My Amazing Summary',
-            'body'       => 'This is the best summary every written.',
-            'thumbnail_root_relative_path' => null,
-            'thumbnail_width' => null,
-            'thumbnail_height' => null,
-        ]);
-        $this->assertEquals(
-            $arrayObject,
-            $this->summaryTable->selectWhereSummaryId(2)
         );
     }
 }
