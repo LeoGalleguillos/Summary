@@ -28,7 +28,7 @@ class RootRelativeUrlTest extends TestCase
     public function testGetRootRelativeUrl()
     {
         $summaryEntity = new SummaryEntity();
-        $summaryEntity->summaryId = 1;
+        $summaryEntity->setSummaryId(1);
         $this->assertSame(
             '/summaries/1/This-is-the-slug',
             $this->summaryRootRelativeUrlService->getRootRelativeUrl($summaryEntity)

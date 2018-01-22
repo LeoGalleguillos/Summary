@@ -39,7 +39,6 @@ class ModuleTest extends TestCase
 
         if (isset($config['view_helpers']['factories'])) {
             foreach ($config['view_helpers']['factories'] as $class => $value) {
-                var_dump($class);
                 $this->assertInstanceOf(
                     $class,
                     $viewHelperManager->get($class)

@@ -24,7 +24,9 @@ class Summary
     public function getSourceEntities(SummaryEntity $summaryEntity) : array
     {
         $sourceEntities = [];
-        $sourceArrays = $this->sourceTable->selectWhereSummaryId($summaryEntity->summaryId);
+        $sourceArrays = $this->sourceTable->selectWhereSummaryId(
+            $summaryEntity->getSummaryId()
+        );
         foreach ($sourceArrays as $sourceArray) {
             $sourceEntities[] = $this->sourceFactory->buildFromArrayObject($sourceArray);
         }

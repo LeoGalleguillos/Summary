@@ -16,6 +16,7 @@ use LeoGalleguillos\Summary\Model\Table\Source as SourceTable;
 use LeoGalleguillos\Summary\Model\Table\Summary as SummaryTable;
 use LeoGalleguillos\Summary\View\Helper\Summary\FacebookShareUrl as FacebookShareUrlHelper;
 use LeoGalleguillos\Summary\View\Helper\Summary\TwitterShareUrl as TwitterShareUrlHelper;
+use LeoGalleguillos\Website\Model\Factory as WebsiteFactory;
 
 class Module
 {
@@ -46,7 +47,8 @@ class Module
                 },
                 SummaryFactory::class => function ($serviceManager) {
                     return new SummaryFactory(
-                        $serviceManager->get(SummaryTable::class)
+                        $serviceManager->get(SummaryTable::class),
+                        $serviceManager->get(WebsiteFactory\Webpage::class)
                     );
                 },
                 SummaryService::class => function ($serviceManager) {

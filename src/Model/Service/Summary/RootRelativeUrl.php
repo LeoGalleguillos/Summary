@@ -20,7 +20,7 @@ class RootRelativeUrl
     public function getRootRelativeUrl(SummaryEntity $summaryEntity) : string
     {
         return '/summaries/'
-             . $summaryEntity->summaryId
+             . $summaryEntity->getSummaryId()
              . '/'
              . $this->summarySlugService->getSlug($summaryEntity);
     }

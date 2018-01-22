@@ -29,7 +29,7 @@ class SummaryTest extends TestCase
     public function testGetSourceEntites()
     {
         $summaryEntity = new SummaryEntity();
-        $summaryEntity->summaryId = 3;
+        $summaryEntity->setSummaryId(3);
 
         $arrayObject1 = new ArrayObject([
             'source_id' => 1,

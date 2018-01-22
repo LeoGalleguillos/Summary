@@ -1,27 +1,34 @@
 <?php
 namespace LeoGalleguillos\Summary\Model\Entity;
 
-use LeoGalleguillos\Image\Model\Entity\Image as ImageEntity;
+use LeoGalleguillos\Website\Model\Entity as WebsiteEntity;
 
 class Summary
 {
     /**
-     * @var string
-     */
-    public $body;
-
-    /**
      * @var int
      */
-    public $summaryId;
+    protected $summaryId;
 
     /**
-     * @var ImageEntity
+     * WebsiteEntity\Webpage
      */
-    public $thumbnail;
+    protected $webpage;
 
-    /**
-     * @var string
-     */
-    public $title;
+    public function getSummaryId() : int
+    {
+        return $this->summaryId;
+    }
+
+    public function setSummaryId(int $summaryId)
+    {
+        $this->summaryId = $summaryId;
+        return $this;
+    }
+
+    public function setWebpage(WebsiteEntity\Webpage $webpage)
+    {
+        $this->webpage = $webpage;
+        return $this;
+    }
 }
