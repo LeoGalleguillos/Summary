@@ -20,6 +20,11 @@ class Summary
         return $this->summaryId;
     }
 
+    public function getWebpage() : WebsiteEntity\Webpage
+    {
+        return $this->webpage;
+    }
+
     public function setSummaryId(int $summaryId)
     {
         $this->summaryId = $summaryId;
