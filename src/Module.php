@@ -30,8 +30,6 @@ class Module
                 'factories' => [
                     FacebookShareUrlHelper::class => FacebookShareUrlHelperFactory::class,
                     TwitterShareUrlHelper::class  => TwitterShareUrlHelperFactory::class,
-                    'summaryOg'                   => OgHelperFactory::class,
-                    'summaryHtmlHeadTitle'        => HtmlHeadTitleHelperFactory::class,
                 ],
             ],
         ];
