@@ -11,6 +11,11 @@ class Summary
     protected $nGrams;
 
     /**
+     * @var string
+     */
+    protected $rootRelativeUrl;
+
+    /**
      * @var int
      */
     protected $summaryId;
@@ -28,6 +33,11 @@ class Summary
     public function getNGrams() : array
     {
         return $this->nGrams;
+    }
+
+    public function getRootRelativeUrl() : string
+    {
+        return $this->rootRelativeUrl;
     }
 
     public function getSummaryId() : int
@@ -48,6 +58,12 @@ class Summary
     public function setNGrams(array $nGrams)
     {
         $this->nGrams = $nGrams;
+        return $this;
+    }
+
+    public function setRootRelativeUrl(string $rootRelativeUrl)
+    {
+        $this->rootRelativeUrl = $rootRelativeUrl;
         return $this;
     }
 

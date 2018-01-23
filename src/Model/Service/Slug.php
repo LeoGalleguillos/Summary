@@ -20,7 +20,7 @@ class Slug
     public function getSlug(SummaryEntity $summaryEntity) : string
     {
         return $this->urlFriendlyService->getUrlFriendly(
-            $summaryEntity->getWebpage()->getTitle()
+            $summaryEntity->getTitle()
         );
     }
 }

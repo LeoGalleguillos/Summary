@@ -15,12 +15,14 @@ class SummaryTest extends TestCase
 {
     protected function setUp()
     {
-        $this->nGramsServiceMock   = $this->createMock(SummaryService\NGrams::class);
+        $this->nGramsServiceMock  = $this->createMock(SummaryService\NGrams::class);
+        $this->rootRelativeUrlServiceMock    = $this->createMock(SummaryService\RootRelativeUrl::class);
         $this->titleServiceMock   = $this->createMock(SummaryService\Title::class);
         $this->summaryTableMock   = $this->createMock(SummaryTable::class);
         $this->webpageFactoryMock = $this->createMock(WebsiteFactory\Webpage::class);
         $this->summaryFactory     = new SummaryFactory(
             $this->nGramsServiceMock,
+            $this->rootRelativeUrlServiceMock,
             $this->titleServiceMock,
             $this->summaryTableMock,
             $this->webpageFactoryMock

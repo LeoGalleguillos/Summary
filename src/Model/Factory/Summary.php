@@ -10,14 +10,16 @@ class Summary
 {
     public function __construct(
         SummaryService\NGrams $nGramsService,
+        SummaryService\RootRelativeUrl $rootRelativeUrlService,
         SummaryService\Title $titleService,
         SummaryTable $summaryTable,
         WebsiteFactory\Webpage $webpageFactory
     ) {
-        $this->nGramsService  = $nGramsService;
-        $this->titleService   = $titleService;
-        $this->summaryTable   = $summaryTable;
-        $this->webpageFactory = $webpageFactory;
+        $this->nGramsService   = $nGramsService;
+        $this->rootRelativeUrlService = $rootRelativeUrlService;
+        $this->titleService    = $titleService;
+        $this->summaryTable    = $summaryTable;
+        $this->webpageFactory  = $webpageFactory;
     }
 
     public function buildFromSummaryId(int $summaryId)
@@ -37,6 +39,9 @@ class Summary
 
         $title = $this->titleService->getTitle($summaryEntity);
         $summaryEntity->setTitle($title);
+
+        $rootRelativeUrl = $this->rootRelativeUrlService->getRootRelativeUrl($summaryEntity);
+        $summaryEntity->setRootRelativeUrl($rootRelativeUrl);
 
         return $summaryEntity;
     }

@@ -27,9 +27,7 @@ class SlugTest extends TestCase
     public function testGetSlug()
     {
         $summaryEntity = new SummaryEntity();
-        $webpageEntity = new WebsiteEntity\Webpage();
-        $webpageEntity->setTitle('This is the title!');
-        $summaryEntity->setWebpage($webpageEntity);
+        $summaryEntity->setTitle('This is the title!');
         $this->assertSame(
             'This-is-the-title',
             $this->summarySlugService->getSlug($summaryEntity)

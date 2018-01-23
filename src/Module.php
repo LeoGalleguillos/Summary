@@ -5,7 +5,7 @@ use LeoGalleguillos\Html\Model\Service as HtmlService;
 use LeoGalleguillos\String\Model\Service as StringService;
 use LeoGalleguillos\String\Model\Service\UrlFriendly as UrlFriendlyService;
 use LeoGalleguillos\Summary\Model\Factory\Source as SourceFactory;
-use LeoGalleguillos\Summary\Model\Factory\Summary as SummaryFactory;
+use LeoGalleguillos\Summary\Model\Factory as SummaryFactory;
 use LeoGalleguillos\Summary\Model\Factory\View\Helper\Summary\FacebookShareUrl as FacebookShareUrlHelperFactory;
 use LeoGalleguillos\Summary\Model\Factory\View\Helper\Summary\TwitterShareUrl as TwitterShareUrlHelperFactory;
 use LeoGalleguillos\Summary\Model\Factory\View\Helper\Summary\Html\Head\Og as OgHelperFactory;
@@ -45,9 +45,10 @@ class Module
                         $serviceManager->get(SourceTable::class)
                     );
                 },
-                SummaryFactory::class => function ($serviceManager) {
-                    return new SummaryFactory(
+                SummaryFactory\Summary::class => function ($serviceManager) {
+                    return new SummaryFactory\Summary(
                         $serviceManager->get(SummaryService\NGrams::class),
+                        $serviceManager->get(SummaryService\RootRelativeUrl::class),
                         $serviceManager->get(SummaryService\Title::class),
                         $serviceManager->get(SummaryTable::class),
                         $serviceManager->get(WebsiteFactory\Webpage::class)
