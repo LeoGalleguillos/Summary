@@ -10,10 +10,12 @@ class Summary
 {
     public function __construct(
         SummaryService\NGrams $nGramsService,
+        SummaryService\Title $titleService,
         SummaryTable $summaryTable,
         WebsiteFactory\Webpage $webpageFactory
     ) {
         $this->nGramsService  = $nGramsService;
+        $this->titleService   = $titleService;
         $this->summaryTable   = $summaryTable;
         $this->webpageFactory = $webpageFactory;
     }
@@ -32,6 +34,9 @@ class Summary
 
         $nGrams = $this->nGramsService->getNGrams($summaryEntity);
         $summaryEntity->setNGrams($nGrams);
+
+        $title = $this->titleService->getTitle($summaryEntity);
+        $summaryEntity->setTitle($title);
 
         return $summaryEntity;
     }

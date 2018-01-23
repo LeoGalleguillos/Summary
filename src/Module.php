@@ -48,6 +48,7 @@ class Module
                 SummaryFactory::class => function ($serviceManager) {
                     return new SummaryFactory(
                         $serviceManager->get(SummaryService\NGrams::class),
+                        $serviceManager->get(SummaryService\Title::class),
                         $serviceManager->get(SummaryTable::class),
                         $serviceManager->get(WebsiteFactory\Webpage::class)
                     );
