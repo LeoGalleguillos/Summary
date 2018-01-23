@@ -6,6 +6,11 @@ use LeoGalleguillos\Website\Model\Entity as WebsiteEntity;
 class Summary
 {
     /**
+     * @var array
+     */
+    protected $nGrams;
+
+    /**
      * @var int
      */
     protected $summaryId;
@@ -15,6 +20,11 @@ class Summary
      */
     protected $webpage;
 
+    public function getNGrams() : array
+    {
+        return $this->nGrams;
+    }
+
     public function getSummaryId() : int
     {
         return $this->summaryId;
@@ -23,6 +33,12 @@ class Summary
     public function getWebpage() : WebsiteEntity\Webpage
     {
         return $this->webpage;
+    }
+
+    public function setNGrams(array $nGrams)
+    {
+        $this->nGrams = $nGrams;
+        return $this;
     }
 
     public function setSummaryId(int $summaryId)

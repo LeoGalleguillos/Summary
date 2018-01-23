@@ -4,7 +4,7 @@ namespace LeoGalleguillos\Summary\Model\Service;
 use LeoGalleguillos\Html\Model\Service as HtmlService;
 use LeoGalleguillos\String\Model\Service as StringService;
 use LeoGalleguillos\Summary\Model\Service\Slug as SummarySlugService;
-use LeoGalleguillos\Summary\Model\Entity\Summary as SummaryEntity;
+use LeoGalleguillos\Summary\Model\Entity as SummaryEntity;
 
 class NGrams
 {

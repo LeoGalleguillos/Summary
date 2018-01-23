@@ -1,6 +1,8 @@
 <?php
 namespace LeoGalleguillos\Summary;
 
+use LeoGalleguillos\Html\Model\Service as HtmlService;
+use LeoGalleguillos\String\Model\Service as StringService;
 use LeoGalleguillos\String\Model\Service\UrlFriendly as UrlFriendlyService;
 use LeoGalleguillos\Summary\Model\Factory\Source as SourceFactory;
 use LeoGalleguillos\Summary\Model\Factory\Summary as SummaryFactory;
@@ -45,8 +47,15 @@ class Module
                 },
                 SummaryFactory::class => function ($serviceManager) {
                     return new SummaryFactory(
+                        $serviceManager->get(SummaryService\NGrams::class),
                         $serviceManager->get(SummaryTable::class),
                         $serviceManager->get(WebsiteFactory\Webpage::class)
+                    );
+                },
+                SummaryService\NGrams::class => function ($serviceManager) {
+                    return new SummaryService\NGrams(
+                        $serviceManager->get(HtmlService\WordsOnly::class),
+                        $serviceManager->get(StringService\NGrams\SortedByCount::class)
                     );
                 },
                 SummaryService\Summary::class => function ($serviceManager) {

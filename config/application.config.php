@@ -2,6 +2,7 @@
 
 return [
     'modules' => [
+        'LeoGalleguillos\Html',
         'LeoGalleguillos\String',
         'LeoGalleguillos\Summary',
         'LeoGalleguillos\Website',

@@ -5,6 +5,7 @@ use ArrayObject;
 use LeoGalleguillos\Image\Model\Entity\Image as ImageEntity;
 use LeoGalleguillos\Summary\Model\Entity\Summary as SummaryEntity;
 use LeoGalleguillos\Summary\Model\Factory\Summary as SummaryFactory;
+use LeoGalleguillos\Summary\Model\Service as SummaryService;
 use LeoGalleguillos\Summary\Model\Table\Summary as SummaryTable;
 use LeoGalleguillos\Website\Model\Entity as WebsiteEntity;
 use LeoGalleguillos\Website\Model\Factory as WebsiteFactory;
@@ -14,9 +15,11 @@ class SummaryTest extends TestCase
 {
     protected function setUp()
     {
+        $this->nGramsServiceMock   = $this->createMock(SummaryService\NGrams::class);
         $this->summaryTableMock   = $this->createMock(SummaryTable::class);
         $this->webpageFactoryMock = $this->createMock(WebsiteFactory\Webpage::class);
         $this->summaryFactory     = new SummaryFactory(
+            $this->nGramsServiceMock,
             $this->summaryTableMock,
             $this->webpageFactoryMock
         );
@@ -41,7 +44,8 @@ class SummaryTest extends TestCase
 
         $summaryEntity            = new SummaryEntity();
         $summaryEntity->setSummaryId(123)
-                      ->setWebpage($webpageEntity);
+                      ->setWebpage($webpageEntity)
+                      ->setNGrams([]);
 
         $this->assertEquals(
             $summaryEntity,
