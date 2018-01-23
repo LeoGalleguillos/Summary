@@ -23,7 +23,7 @@ class Summary
             $arrayObject['webpage_id']
         );
 
-        $summaryEntity            = new SummaryEntity();
+        $summaryEntity = new SummaryEntity();
         $summaryEntity->setSummaryId((int) $arrayObject['summary_id'])
                       ->setWebpage($webpageEntity);
 

@@ -2,7 +2,7 @@
 namespace LeoGalleguillos\SummaryTest\Model\Service\Summary;
 
 use LeoGalleguillos\Summary\Model\Entity\Summary as SummaryEntity;
-use LeoGalleguillos\Summary\Model\Service\Summary\RootRelativeUrl as SummaryRootRelativeUrlService;
+use LeoGalleguillos\Summary\Model\Service\RootRelativeUrl as SummaryRootRelativeUrlService;
 use LeoGalleguillos\Summary\Model\Service\Summary\Url as SummaryUrlService;
 use PHPUnit\Framework\TestCase;
 

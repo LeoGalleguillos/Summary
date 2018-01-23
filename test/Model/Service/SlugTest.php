@@ -3,21 +3,24 @@ namespace LeoGalleguillos\SummaryTest\Model\Service\Summary;
 
 use LeoGalleguillos\String\Model\Service\UrlFriendly as UrlFriendlyService;
 use LeoGalleguillos\Summary\Model\Entity\Summary as SummaryEntity;
-use LeoGalleguillos\Summary\Model\Service\Summary\Slug as SummarySlugService;
+use LeoGalleguillos\Summary\Model\Service as SummaryService;
 use PHPUnit\Framework\TestCase;
 
 class SlugTest extends TestCase
 {
     protected function setUp()
     {
-        $this->summarySlugService = new SummarySlugService(
+        $this->summarySlugService = new SummaryService\Slug(
             new UrlFriendlyService()
         );
     }
 
     public function testInitialize()
     {
-        $this->assertInstanceOf(SummarySlugService::class, $this->summarySlugService);
+        $this->assertInstanceOf(
+            SummaryService\Slug::class,
+            $this->summarySlugService
+        );
     }
 
     public function testGetSlug()

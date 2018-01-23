@@ -1,7 +1,7 @@
 <?php
 namespace LeoGalleguillos\Summary\Model\Service\Summary;
 
-use LeoGalleguillos\Summary\Model\Service\Summary\RootRelativeUrl as SummaryRootRelativeUrlService;
+use LeoGalleguillos\Summary\Model\Service\RootRelativeUrl as SummaryRootRelativeUrlService;
 use LeoGalleguillos\Summary\Model\Entity\Summary as SummaryEntity;
 
 class Url

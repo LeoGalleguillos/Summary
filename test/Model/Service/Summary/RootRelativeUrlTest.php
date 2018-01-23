@@ -2,8 +2,8 @@
 namespace LeoGalleguillos\SummaryTest\Model\Service\Summary;
 
 use LeoGalleguillos\Summary\Model\Entity\Summary as SummaryEntity;
-use LeoGalleguillos\Summary\Model\Service\Summary\RootRelativeUrl as SummaryRootRelativeUrlService;
-use LeoGalleguillos\Summary\Model\Service\Summary\Slug as SummarySlugService;
+use LeoGalleguillos\Summary\Model\Service\RootRelativeUrl as SummaryRootRelativeUrlService;
+use LeoGalleguillos\Summary\Model\Service\Slug as SummarySlugService;
 use PHPUnit\Framework\TestCase;
 
 class RootRelativeUrlTest extends TestCase

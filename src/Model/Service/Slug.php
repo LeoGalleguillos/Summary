@@ -1,5 +1,5 @@
 <?php
-namespace LeoGalleguillos\Summary\Model\Service\Summary;
+namespace LeoGalleguillos\Summary\Model\Service;
 
 use LeoGalleguillos\String\Model\Service\UrlFriendly as UrlFriendlyService;
 use LeoGalleguillos\Summary\Model\Entity\Summary as SummaryEntity;

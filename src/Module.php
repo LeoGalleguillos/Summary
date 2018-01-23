@@ -8,9 +8,7 @@ use LeoGalleguillos\Summary\Model\Factory\View\Helper\Summary\FacebookShareUrl a
 use LeoGalleguillos\Summary\Model\Factory\View\Helper\Summary\TwitterShareUrl as TwitterShareUrlHelperFactory;
 use LeoGalleguillos\Summary\Model\Factory\View\Helper\Summary\Html\Head\Og as OgHelperFactory;
 use LeoGalleguillos\Summary\Model\Factory\View\Helper\Summary\HtmlHeadTitle as HtmlHeadTitleHelperFactory;
-use LeoGalleguillos\Summary\Model\Service\Summary as SummaryService;
-use LeoGalleguillos\Summary\Model\Service\Summary\RootRelativeUrl as SummaryRootRelativeUrlService;
-use LeoGalleguillos\Summary\Model\Service\Summary\Slug as SummarySlugService;
+use LeoGalleguillos\Summary\Model\Service as SummaryService;
 use LeoGalleguillos\Summary\Model\Service\Summary\Url as SummaryUrlService;
 use LeoGalleguillos\Summary\Model\Table\Source as SourceTable;
 use LeoGalleguillos\Summary\Model\Table\Summary as SummaryTable;
@@ -51,25 +49,25 @@ class Module
                         $serviceManager->get(WebsiteFactory\Webpage::class)
                     );
                 },
-                SummaryService::class => function ($serviceManager) {
-                    return new SummaryService(
+                SummaryService\Summary::class => function ($serviceManager) {
+                    return new SummaryService\Summary(
                         $serviceManager->get(SourceFactory::class),
                         $serviceManager->get(SourceTable::class)
                     );
                 },
-                SummaryRootRelativeUrlService::class => function ($serviceManager) {
-                    return new SummaryRootRelativeUrlService(
-                        $serviceManager->get(SummarySlugService::class)
+                SummaryService\RootRelativeUrl::class => function ($serviceManager) {
+                    return new SummaryService\RootRelativeUrl(
+                        $serviceManager->get(SummaryService\Slug::class)
                     );
                 },
-                SummarySlugService::class => function ($serviceManager) {
-                    return new SummarySlugService(
+                SummaryService\Slug::class => function ($serviceManager) {
+                    return new SummaryService\Slug(
                         $serviceManager->get(UrlFriendlyService::class)
                     );
                 },
                 SummaryUrlService::class => function ($serviceManager) {
                     return new SummaryUrlService(
-                        $serviceManager->get(SummaryRootRelativeUrlService::class)
+                        $serviceManager->get(SummaryService\RootRelativeUrl::class)
                     );
                 },
                 SourceTable::class => function ($serviceManager) {
