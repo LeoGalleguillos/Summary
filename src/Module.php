@@ -74,6 +74,9 @@ class Module
                         $serviceManager->get(UrlFriendlyService::class)
                     );
                 },
+                SummaryService\Title::class => function ($serviceManager) {
+                    return new SummaryService\Title();
+                },
                 SummaryUrlService::class => function ($serviceManager) {
                     return new SummaryUrlService(
                         $serviceManager->get(SummaryService\RootRelativeUrl::class)
