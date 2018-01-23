@@ -11,7 +11,7 @@ class OgTest extends TestCase
     protected function setUp()
     {
         $this->summaryEntity        = new SummaryEntity();
-        $this->summaryEntity->title = 'Hello world!';
+        $this->summaryEntity->setTitle('Hello world!');
 
         $this->summaryEntity->thumbnail                   = new ImageEntity();
         $this->summaryEntity->thumbnail->rootRelativePath = '/path/to/image.jpg';

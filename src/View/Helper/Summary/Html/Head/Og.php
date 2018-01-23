@@ -17,7 +17,7 @@ class Og extends AbstractHelper
 
     public function getOgDescription(SummaryEntity $summaryEntity) : string
     {
-        return 'So, to summarize, ' . $summaryEntity->title;
+        return 'So, to summarize, ' . $summaryEntity->getTitle();
     }
 
     public function getOgImage(SummaryEntity $summaryEntity) : string

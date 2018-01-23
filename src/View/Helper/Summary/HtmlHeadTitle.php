@@ -17,6 +17,6 @@ class HtmlHeadTitle extends AbstractHelper
 
     public function getHtmlHeadTitle(SummaryEntity $summaryEntity) : string
     {
-        return 'So, to summarize, ' . $summaryEntity->title;
+        return 'So, to summarize, ' . $summaryEntity->getTitle();
     }
 }

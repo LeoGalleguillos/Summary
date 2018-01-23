@@ -16,6 +16,11 @@ class Summary
     protected $summaryId;
 
     /**
+     * @var string
+     */
+    protected $title;
+
+    /**
      * WebsiteEntity\Webpage
      */
     protected $webpage;
@@ -28,6 +33,11 @@ class Summary
     public function getSummaryId() : int
     {
         return $this->summaryId;
+    }
+
+    public function getTitle() : string
+    {
+        return $this->title;
     }
 
     public function getWebpage() : WebsiteEntity\Webpage
@@ -44,6 +54,12 @@ class Summary
     public function setSummaryId(int $summaryId)
     {
         $this->summaryId = $summaryId;
+        return $this;
+    }
+
+    public function setTitle(string $title)
+    {
+        $this->title = $title;
         return $this;
     }
 

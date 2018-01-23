@@ -29,14 +29,14 @@ class HtmlHeadTitleTest extends TestCase
     public function testGetHtmlHeadTitle()
     {
         $summaryEntity = new SummaryEntity();
-        $summaryEntity->title = 'This is the Title';
+        $summaryEntity->setTitle('This is the Title');
         $this->assertSame(
             'So, to summarize, This is the Title',
             $this->htmlHeadTitleHelper->getHtmlHeadTitle($summaryEntity)
         );
 
         $summaryEntity = new SummaryEntity();
-        $summaryEntity->title = 'This is another title';
+        $summaryEntity->setTitle('This is another title');
         $this->assertSame(
             'So, to summarize, This is another title',
             $this->htmlHeadTitleHelper->getHtmlHeadTitle($summaryEntity)
