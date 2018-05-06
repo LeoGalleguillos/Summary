@@ -27,7 +27,7 @@ class Title
         ];
         return (bool) $this->adapter
                            ->query($sql)
-                           ->execute([$parameters])
+                           ->execute($parameters)
                            ->getAffectedRows();
     }
 }
