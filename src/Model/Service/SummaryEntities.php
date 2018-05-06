@@ -25,7 +25,7 @@ class SummaryEntities
     public function getSummaryEntities() : Generator
     {
         foreach ($this->summaryTable->select() as $array) {
-            yield $this->summaryFactry->buildFromArray($array);
+            yield $this->summaryFactory->buildFromArray($array);
         }
     }
 }
