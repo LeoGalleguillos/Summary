@@ -3,7 +3,6 @@ namespace LeoGalleguillos\Summary;
 
 use LeoGalleguillos\Html\Model\Service as HtmlService;
 use LeoGalleguillos\String\Model\Service as StringService;
-use LeoGalleguillos\String\Model\Service\UrlFriendly as UrlFriendlyService;
 use LeoGalleguillos\Summary\Model\Factory\Source as SourceFactory;
 use LeoGalleguillos\Summary\Model\Factory as SummaryFactory;
 use LeoGalleguillos\Summary\Model\Factory\View\Helper\Summary\FacebookShareUrl as FacebookShareUrlHelperFactory;
@@ -79,7 +78,7 @@ class Module
                 },
                 SummaryService\Slug::class => function ($serviceManager) {
                     return new SummaryService\Slug(
-                        $serviceManager->get(UrlFriendlyService::class)
+                        $serviceManager->get(StringService\UrlFriendly::class)
                     );
                 },
                 SummaryService\Title::class => function ($serviceManager) {
