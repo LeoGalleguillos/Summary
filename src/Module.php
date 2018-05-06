@@ -99,6 +99,11 @@ class Module
                         $serviceManager->get('main')
                     );
                 },
+                SummaryTable\Summary\Title::class => function ($serviceManager) {
+                    return new SummaryTable\Summary\Title(
+                        $serviceManager->get('main')
+                    );
+                },
             ],
         ];
     }
