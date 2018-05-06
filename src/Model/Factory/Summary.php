@@ -35,15 +35,19 @@ class Summary
             $array['webpage_id']
         );
 
+
         $summaryEntity = new SummaryEntity\Summary();
         $summaryEntity->setSummaryId((int) $array['summary_id'])
                       ->setWebpage($webpageEntity);
 
+        if (empty($array['title'])) {
+            $array['title'] = $this->titleService->getTitle($summaryEntity);
+        }
+        $summaryEntity->setTitle($array['title']);
+
         $nGrams = $this->nGramsService->getNGrams($summaryEntity);
         $summaryEntity->setNGrams($nGrams);
 
-        $title = $this->titleService->getTitle($summaryEntity);
-        $summaryEntity->setTitle($title);
 
         $rootRelativeUrl = $this->rootRelativeUrlService->getRootRelativeUrl($summaryEntity);
         $summaryEntity->setRootRelativeUrl($rootRelativeUrl);
