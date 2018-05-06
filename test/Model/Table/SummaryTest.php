@@ -1,7 +1,7 @@
 <?php
 namespace LeoGalleguillos\SummaryTest\Model\Table;
 
-use ArrayObject;
+use Generator;
 use LeoGalleguillos\Summary\Model\Table\Summary as SummaryTable;
 use Zend\Db\Adapter\Adapter;
 use PHPUnit\Framework\TestCase;
@@ -56,6 +56,29 @@ class SummaryTest extends TestCase
         $this->assertSame(
             1,
             $this->summaryTable->selectCount()
+        );
+    }
+
+    public function testSelect()
+    {
+        $this->summaryTable->insert(
+            1,
+            'Title'
+        );
+
+        $generator = $this->summaryTable->select();
+        $this->assertInstanceOf(
+            Generator::class,
+            $generator
+        );
+
+        $array = [
+            'summary_id' => '1',
+            'webpage_id' => '1',
+        ];
+        $this->assertSame(
+            $array,
+            $generator->current()
         );
     }
 
