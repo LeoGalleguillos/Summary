@@ -42,6 +42,9 @@ class Summary
         $summaryEntity->setSummaryId((int) $array['summary_id'])
                       ->setWebpage($webpageEntity);
 
+        $nGrams = $this->nGramsService->getNGrams($summaryEntity);
+        $summaryEntity->setNGrams($nGrams);
+
         if (empty($array['title'])) {
             $array['title'] = $this->titleService->getTitle($summaryEntity);
             $this->summaryTitleTable->updateSetTitleWhereSummaryId(
@@ -51,11 +54,9 @@ class Summary
         }
         $summaryEntity->setTitle($array['title']);
 
-        $nGrams = $this->nGramsService->getNGrams($summaryEntity);
-        $summaryEntity->setNGrams($nGrams);
-
-
-        $rootRelativeUrl = $this->rootRelativeUrlService->getRootRelativeUrl($summaryEntity);
+        $rootRelativeUrl = $this->rootRelativeUrlService->getRootRelativeUrl(
+            $summaryEntity
+        );
         $summaryEntity->setRootRelativeUrl($rootRelativeUrl);
 
         return $summaryEntity;
