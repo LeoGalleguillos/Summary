@@ -14,15 +14,17 @@ class Summary
         SummaryService\RootRelativeUrl $rootRelativeUrlService,
         SummaryService\Title $titleService,
         SummaryTable\Summary $summaryTable,
+        SummaryTable\Summary\NGramsUpdated $summaryNGramsUpdatedTable,
         SummaryTable\Summary\Title $summaryTitleTable,
         WebsiteFactory\Webpage $webpageFactory
     ) {
-        $this->nGramsService          = $nGramsService;
-        $this->rootRelativeUrlService = $rootRelativeUrlService;
-        $this->titleService           = $titleService;
-        $this->summaryTable           = $summaryTable;
-        $this->summaryTitleTable      = $summaryTitleTable;
-        $this->webpageFactory         = $webpageFactory;
+        $this->nGramsService             = $nGramsService;
+        $this->rootRelativeUrlService    = $rootRelativeUrlService;
+        $this->titleService              = $titleService;
+        $this->summaryTable              = $summaryTable;
+        $this->summaryNGramsUpdatedTable = $summaryNGramsUpdatedTable;
+        $this->summaryTitleTable         = $summaryTitleTable;
+        $this->webpageFactory            = $webpageFactory;
     }
 
     public function buildFromSummaryId(int $summaryId)
@@ -43,7 +45,9 @@ class Summary
         $summaryEntity->setSummaryId((int) $array['summary_id'])
                       ->setWebpage($webpageEntity);
 
-        if (!empty($array['n_grams_updated'])) {
+        if (empty($array['n_grams_updated'])) {
+
+        } else {
             $summaryEntity->setNGramsUpdated(
                 new DateTime($array['n_grams_updated'])
             );

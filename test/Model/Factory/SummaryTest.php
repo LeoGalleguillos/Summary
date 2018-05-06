@@ -19,7 +19,12 @@ class SummaryTest extends TestCase
         $this->rootRelativeUrlServiceMock    = $this->createMock(SummaryService\RootRelativeUrl::class);
         $this->titleServiceMock   = $this->createMock(SummaryService\Title::class);
         $this->summaryTableMock   = $this->createMock(SummaryTable\Summary::class);
-        $this->summaryTitleTableMock   = $this->createMock(SummaryTable\Summary\Title::class);
+        $this->summaryNGramsUpdatedTableMock = $this->createMock(
+            SummaryTable\Summary\NGramsUpdated::class
+        );
+        $this->summaryTitleTableMock = $this->createMock(
+            SummaryTable\Summary\Title::class
+        );
         $this->webpageFactoryMock = $this->createMock(WebsiteFactory\Webpage::class);
 
         $this->summaryFactory = new SummaryFactory(
@@ -27,6 +32,7 @@ class SummaryTest extends TestCase
             $this->rootRelativeUrlServiceMock,
             $this->titleServiceMock,
             $this->summaryTableMock,
+            $this->summaryNGramsUpdatedTableMock,
             $this->summaryTitleTableMock,
             $this->webpageFactoryMock
         );
