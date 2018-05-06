@@ -1,6 +1,7 @@
 <?php
 namespace LeoGalleguillos\Summary\Model\Factory;
 
+use DateTime;
 use LeoGalleguillos\Summary\Model\Entity as SummaryEntity;
 use LeoGalleguillos\Summary\Model\Service as SummaryService;
 use LeoGalleguillos\Summary\Model\Table as SummaryTable;
@@ -41,6 +42,12 @@ class Summary
         $summaryEntity = new SummaryEntity\Summary();
         $summaryEntity->setSummaryId((int) $array['summary_id'])
                       ->setWebpage($webpageEntity);
+
+        if (!empty($array['n_grams_updated'])) {
+            $summaryEntity->setNGramsUpdated(
+                new DateTime($array['n_grams_updated'])
+            );
+        }
 
         $nGrams = $this->nGramsService->getNGrams($summaryEntity);
         $summaryEntity->setNGrams($nGrams);
