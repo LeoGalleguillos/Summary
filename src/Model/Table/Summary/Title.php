@@ -21,6 +21,10 @@ class Title
              WHERE `summary_id` = :summaryId
                  ;
         ';
+        $parameters = [
+            'title'     => $title,
+            'summaryId' => $summaryId,
+        ];
         return (bool) $this->adapter
                            ->query($sql)
                            ->execute([$parameters])
