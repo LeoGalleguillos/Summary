@@ -49,7 +49,8 @@ class SummaryTest extends TestCase
     public function testInsert()
     {
         $this->summaryTable->insert(
-            1
+            1,
+            'Title'
         );
 
         $this->assertSame(
@@ -69,7 +70,9 @@ class SummaryTest extends TestCase
     public function testSelectWhereSummaryId()
     {
         $this->summaryTable->insert(
-            1
+            1,
+            'Title'
+
         );
 
         $arrayObject = new ArrayObject([

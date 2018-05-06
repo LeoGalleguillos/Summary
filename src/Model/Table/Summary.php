@@ -15,19 +15,22 @@ class Summary
      * @return int Primary key
      */
     public function insert(
-        int $webpageId
+        int $webpageId,
+        string $title
     ) {
         $sql = '
             INSERT
-              INTO `summary` (`webpage_id`)
-            VALUES (?)
+              INTO `summary` (`webpage_id`, `title`)
+            VALUES (?, ?)
                  ;
         ';
         $parameters = [
             $webpageId,
+            $title,
         ];
         return $this->adapter
-                    ->query($sql, $parameters)
+                    ->query($sql)
+                    ->execute($parameters)
                     ->getGeneratedValue();
     }
 
