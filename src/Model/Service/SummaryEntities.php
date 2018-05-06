@@ -1,5 +1,5 @@
 <?php
-namespace LeoGalleguillos\Summary\Model\Service\Summary;
+namespace LeoGalleguillos\Summary\Model\Service;
 
 use Generator;
 use LeoGalleguillos\Summary\Model\Entity as SummaryEntity;

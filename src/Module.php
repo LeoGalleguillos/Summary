@@ -13,7 +13,7 @@ use LeoGalleguillos\Summary\Model\Factory\View\Helper\Summary\HtmlHeadTitle as H
 use LeoGalleguillos\Summary\Model\Service as SummaryService;
 use LeoGalleguillos\Summary\Model\Service\Summary\Url as SummaryUrlService;
 use LeoGalleguillos\Summary\Model\Table\Source as SourceTable;
-use LeoGalleguillos\Summary\Model\Table\Summary as SummaryTable;
+use LeoGalleguillos\Summary\Model\Table as SummaryTable;
 use LeoGalleguillos\Summary\View\Helper\Summary\FacebookShareUrl as FacebookShareUrlHelper;
 use LeoGalleguillos\Summary\View\Helper\Summary\TwitterShareUrl as TwitterShareUrlHelper;
 use LeoGalleguillos\Website\Model\Factory as WebsiteFactory;
@@ -50,7 +50,7 @@ class Module
                         $serviceManager->get(SummaryService\NGrams::class),
                         $serviceManager->get(SummaryService\RootRelativeUrl::class),
                         $serviceManager->get(SummaryService\Title::class),
-                        $serviceManager->get(SummaryTable::class),
+                        $serviceManager->get(SummaryTable\Summary::class),
                         $serviceManager->get(WebsiteFactory\Webpage::class)
                     );
                 },
@@ -71,6 +71,12 @@ class Module
                         $serviceManager->get(SummaryService\Slug::class)
                     );
                 },
+                SummaryService\SummaryEntities::class => function ($serviceManager) {
+                    return new SummaryService\SummaryEntities(
+                        $serviceManager->get(SummaryFactory\Summary::class),
+                        $serviceManager->get(SummaryTable\Summary::class)
+                    );
+                },
                 SummaryService\Slug::class => function ($serviceManager) {
                     return new SummaryService\Slug(
                         $serviceManager->get(UrlFriendlyService::class)
@@ -89,8 +95,8 @@ class Module
                         $serviceManager->get('main')
                     );
                 },
-                SummaryTable::class => function ($serviceManager) {
-                    return new SummaryTable(
+                SummaryTable\Summary::class => function ($serviceManager) {
+                    return new SummaryTable\Summary(
                         $serviceManager->get('main')
                     );
                 },
