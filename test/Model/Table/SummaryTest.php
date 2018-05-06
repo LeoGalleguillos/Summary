@@ -75,6 +75,7 @@ class SummaryTest extends TestCase
         $array = [
             'summary_id' => '1',
             'webpage_id' => '1',
+            'title'      => 'Title',
         ];
         $this->assertSame(
             $array,
@@ -101,6 +102,7 @@ class SummaryTest extends TestCase
         $arrayObject = [
             'summary_id' => '1',
             'webpage_id' => '1',
+            'title'      => 'Title',
         ];
         $this->assertEquals(
             $arrayObject,

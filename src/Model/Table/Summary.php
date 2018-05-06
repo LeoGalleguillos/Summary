@@ -39,6 +39,7 @@ class Summary
         $sql = '
             SELECT `summary`.`summary_id`
                  , `summary`.`webpage_id`
+                 , `summary`.`title`
               FROM `summary`
                  ;
         ';
@@ -66,6 +67,7 @@ class Summary
         $sql = '
             SELECT `summary`.`summary_id`
                  , `summary`.`webpage_id`
+                 , `summary`.`title`
               FROM `summary`
              WHERE `summary`.`summary_id` = ?
                  ;
