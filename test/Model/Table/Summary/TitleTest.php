@@ -23,6 +23,8 @@ class TitleTest extends TestCase
         $configArray        = require($_SERVER['PWD'] . '/config/autoload/local.php');
         $configArray        = $configArray['db']['adapters']['leogalle_test'];
         $this->adapter      = new Adapter($configArray);
+
+        $this->summaryTable      = new SummaryTable\Summary($this->adapter);
         $this->summaryTitleTable = new SummaryTable\Summary\Title($this->adapter);
 
         $this->dropTable();
@@ -46,6 +48,20 @@ class TitleTest extends TestCase
         $this->assertInstanceOf(
             SummaryTable\Summary\Title::class,
             $this->summaryTitleTable
+        );
+    }
+
+    public function testUpdateSetTitleWhereSummaryId()
+    {
+        $this->assertFalse(
+            $this->summaryTitleTable->updateSetTitleWhereSummaryId('New Title', 1)
+        );
+        $this->summaryTable->insert(
+            1,
+            'Old Title'
+        );
+        $this->assertTrue(
+            $this->summaryTitleTable->updateSetTitleWhereSummaryId('New Title', 1)
         );
     }
 }
