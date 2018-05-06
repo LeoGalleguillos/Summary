@@ -1,6 +1,7 @@
 <?php
 namespace LeoGalleguillos\Summary\Model\Entity;
 
+use DateTime;
 use LeoGalleguillos\Website\Model\Entity as WebsiteEntity;
 
 class Summary
@@ -9,6 +10,11 @@ class Summary
      * @var array
      */
     protected $nGrams;
+
+    /**
+     * @var DateTime
+     */
+    protected $nGramsUpdated;
 
     /**
      * @var string
@@ -35,6 +41,11 @@ class Summary
         return $this->nGrams;
     }
 
+    public function getNGramsUpdated() : DateTime
+    {
+        return $this->nGramsUpdated;
+    }
+
     public function getRootRelativeUrl() : string
     {
         return $this->rootRelativeUrl;
@@ -58,6 +69,12 @@ class Summary
     public function setNGrams(array $nGrams)
     {
         $this->nGrams = $nGrams;
+        return $this;
+    }
+
+    public function setNGramsUpdated(DateTime $nGramsUpdated)
+    {
+        $this->nGramsUpdated = $nGramsUpdated;
         return $this;
     }
 
