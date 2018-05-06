@@ -50,6 +50,7 @@ class Module
                         $serviceManager->get(SummaryService\RootRelativeUrl::class),
                         $serviceManager->get(SummaryService\Title::class),
                         $serviceManager->get(SummaryTable\Summary::class),
+                        $serviceManager->get(SummaryTable\Summary\Title::class),
                         $serviceManager->get(WebsiteFactory\Webpage::class)
                     );
                 },

@@ -13,13 +13,15 @@ class Summary
         SummaryService\RootRelativeUrl $rootRelativeUrlService,
         SummaryService\Title $titleService,
         SummaryTable\Summary $summaryTable,
+        SummaryTable\Summary\Title $summaryTitleTable,
         WebsiteFactory\Webpage $webpageFactory
     ) {
-        $this->nGramsService   = $nGramsService;
+        $this->nGramsService          = $nGramsService;
         $this->rootRelativeUrlService = $rootRelativeUrlService;
-        $this->titleService    = $titleService;
-        $this->summaryTable    = $summaryTable;
-        $this->webpageFactory  = $webpageFactory;
+        $this->titleService           = $titleService;
+        $this->summaryTable           = $summaryTable;
+        $this->summaryTitleTable      = $summaryTitleTable;
+        $this->webpageFactory         = $webpageFactory;
     }
 
     public function buildFromSummaryId(int $summaryId)

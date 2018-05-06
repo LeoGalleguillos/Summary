@@ -6,7 +6,7 @@ use LeoGalleguillos\Image\Model\Entity\Image as ImageEntity;
 use LeoGalleguillos\Summary\Model\Entity\Summary as SummaryEntity;
 use LeoGalleguillos\Summary\Model\Factory\Summary as SummaryFactory;
 use LeoGalleguillos\Summary\Model\Service as SummaryService;
-use LeoGalleguillos\Summary\Model\Table\Summary as SummaryTable;
+use LeoGalleguillos\Summary\Model\Table as SummaryTable;
 use LeoGalleguillos\Website\Model\Entity as WebsiteEntity;
 use LeoGalleguillos\Website\Model\Factory as WebsiteFactory;
 use PHPUnit\Framework\TestCase;
@@ -18,13 +18,16 @@ class SummaryTest extends TestCase
         $this->nGramsServiceMock  = $this->createMock(SummaryService\NGrams::class);
         $this->rootRelativeUrlServiceMock    = $this->createMock(SummaryService\RootRelativeUrl::class);
         $this->titleServiceMock   = $this->createMock(SummaryService\Title::class);
-        $this->summaryTableMock   = $this->createMock(SummaryTable::class);
+        $this->summaryTableMock   = $this->createMock(SummaryTable\Summary::class);
+        $this->summaryTitleTableMock   = $this->createMock(SummaryTable\Summary\Title::class);
         $this->webpageFactoryMock = $this->createMock(WebsiteFactory\Webpage::class);
-        $this->summaryFactory     = new SummaryFactory(
+
+        $this->summaryFactory = new SummaryFactory(
             $this->nGramsServiceMock,
             $this->rootRelativeUrlServiceMock,
             $this->titleServiceMock,
             $this->summaryTableMock,
+            $this->summaryTitleTableMock,
             $this->webpageFactoryMock
         );
     }
