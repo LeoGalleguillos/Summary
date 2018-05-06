@@ -46,7 +46,9 @@ class Summary
                       ->setWebpage($webpageEntity);
 
         if (empty($array['n_grams_updated'])) {
-
+            $this->summaryNGramsUpdatedTable->updateSetNGramsUpdatedToNowWhereSummaryId(
+                $summaryEntity->getSummaryId()
+            );
         } else {
             $summaryEntity->setNGramsUpdated(
                 new DateTime($array['n_grams_updated'])
