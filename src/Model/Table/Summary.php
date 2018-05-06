@@ -1,7 +1,7 @@
 <?php
 namespace LeoGalleguillos\Summary\Model\Table;
 
-use ArrayObject;
+use Generator;
 use Zend\Db\Adapter\Adapter;
 
 class Summary
@@ -32,6 +32,19 @@ class Summary
                     ->query($sql)
                     ->execute($parameters)
                     ->getGeneratedValue();
+    }
+
+    public function select() : Generator
+    {
+        $sql = '
+            SELECT `summary`.`summary_id`
+                 , `summary`.`webpage_id`
+              FROM `summary`
+                 ;
+        ';
+        foreach ($this->adapter->query($sql)->execute() as $array) {
+            yield $array;
+        }
     }
 
     public function selectCount()
