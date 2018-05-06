@@ -1,9 +1,9 @@
 <?php
 namespace LeoGalleguillos\Summary\Model\Factory;
 
-use LeoGalleguillos\Summary\Model\Entity\Summary as SummaryEntity;
+use LeoGalleguillos\Summary\Model\Entity as SummaryEntity;
 use LeoGalleguillos\Summary\Model\Service as SummaryService;
-use LeoGalleguillos\Summary\Model\Table\Summary as SummaryTable;
+use LeoGalleguillos\Summary\Model\Table as SummaryTable;
 use LeoGalleguillos\Website\Model\Factory as WebsiteFactory;
 
 class Summary
@@ -12,7 +12,7 @@ class Summary
         SummaryService\NGrams $nGramsService,
         SummaryService\RootRelativeUrl $rootRelativeUrlService,
         SummaryService\Title $titleService,
-        SummaryTable $summaryTable,
+        SummaryTable\Summary $summaryTable,
         WebsiteFactory\Webpage $webpageFactory
     ) {
         $this->nGramsService   = $nGramsService;
@@ -24,14 +24,19 @@ class Summary
 
     public function buildFromSummaryId(int $summaryId)
     {
-        $arrayObject = $this->summaryTable->selectWhereSummaryId($summaryId);
+        return $this->buildFromArray(
+            $this->summaryTable->selectWhereSummaryId($summaryId)
+        );
+    }
 
+    public function buildFromArray(array $array) : SummaryEntity\Summary
+    {
         $webpageEntity = $this->webpageFactory->buildFromWebpageId(
-            $arrayObject['webpage_id']
+            $array['webpage_id']
         );
 
-        $summaryEntity = new SummaryEntity();
-        $summaryEntity->setSummaryId((int) $arrayObject['summary_id'])
+        $summaryEntity = new SummaryEntity\Summary();
+        $summaryEntity->setSummaryId((int) $array['summary_id'])
                       ->setWebpage($webpageEntity);
 
         $nGrams = $this->nGramsService->getNGrams($summaryEntity);

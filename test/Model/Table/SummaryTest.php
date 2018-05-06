@@ -75,10 +75,10 @@ class SummaryTest extends TestCase
 
         );
 
-        $arrayObject = new ArrayObject([
+        $arrayObject = [
             'summary_id' => '1',
             'webpage_id' => '1',
-        ]);
+        ];
         $this->assertEquals(
             $arrayObject,
             $this->summaryTable->selectWhereSummaryId(1)

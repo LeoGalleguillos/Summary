@@ -46,9 +46,9 @@ class Summary
     }
 
     /**
-     * @return ArrayObject
+     * @return array
      */
-    public function selectWhereSummaryId($summaryId) : ArrayObject
+    public function selectWhereSummaryId($summaryId) : array
     {
         $sql = '
             SELECT `summary`.`summary_id`
@@ -57,8 +57,6 @@ class Summary
              WHERE `summary`.`summary_id` = ?
                  ;
         ';
-        $result = $this->adapter->query($sql, [$summaryId])->current();
-
-        return $result;
+        return $this->adapter->query($sql)->execute([$summaryId])->current();
     }
 }

@@ -36,10 +36,10 @@ class SummaryTest extends TestCase
 
     public function testBuildFromSummaryId()
     {
-        $arrayObject = new ArrayObject([
+        $arrayObject = [
             'summary_id' => '123',
             'webpage_id' => '456',
-        ]);
+        ];
         $webpageEntity = new WebsiteEntity\Webpage();
         $this->summaryTableMock->method('selectWhereSummaryId')->willReturn($arrayObject);
         $this->webpageFactoryMock->method('buildFromWebpageId')->willReturn(
