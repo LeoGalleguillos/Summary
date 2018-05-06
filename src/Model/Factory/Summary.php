@@ -44,6 +44,10 @@ class Summary
 
         if (empty($array['title'])) {
             $array['title'] = $this->titleService->getTitle($summaryEntity);
+            $this->summaryTitleTable->updateSetTitleWhereSummaryId(
+                $array['title'],
+                $summaryEntity->getSummaryId()
+            );
         }
         $summaryEntity->setTitle($array['title']);
 
