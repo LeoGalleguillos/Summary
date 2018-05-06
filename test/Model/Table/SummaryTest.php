@@ -73,9 +73,10 @@ class SummaryTest extends TestCase
         );
 
         $array = [
-            'summary_id' => '1',
-            'webpage_id' => '1',
-            'title'      => 'Title',
+            'summary_id'      => '1',
+            'webpage_id'      => '1',
+            'title'           => 'Title',
+            'n_grams_updated' => null,
         ];
         $this->assertSame(
             $array,
@@ -100,9 +101,10 @@ class SummaryTest extends TestCase
         );
 
         $arrayObject = [
-            'summary_id' => '1',
-            'webpage_id' => '1',
-            'title'      => 'Title',
+            'summary_id'      => '1',
+            'webpage_id'      => '1',
+            'title'           => 'Title',
+            'n_grams_updated' => null,
         ];
         $this->assertEquals(
             $arrayObject,

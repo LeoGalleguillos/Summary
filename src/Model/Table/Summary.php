@@ -40,6 +40,7 @@ class Summary
             SELECT `summary`.`summary_id`
                  , `summary`.`webpage_id`
                  , `summary`.`title`
+                 , `summary`.`n_grams_updated`
               FROM `summary`
                  ;
         ';
@@ -68,6 +69,7 @@ class Summary
             SELECT `summary`.`summary_id`
                  , `summary`.`webpage_id`
                  , `summary`.`title`
+                 , `summary`.`n_grams_updated`
               FROM `summary`
              WHERE `summary`.`summary_id` = ?
                  ;
