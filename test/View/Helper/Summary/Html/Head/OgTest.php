@@ -15,8 +15,8 @@ class OgTest extends TestCase
 
         $this->summaryEntity->thumbnail                   = new ImageEntity();
         $this->summaryEntity->thumbnail->rootRelativePath = '/path/to/image.jpg';
-        $this->summaryEntity->thumbnail->width            = 200;
-        $this->summaryEntity->thumbnail->height           = 100;
+        $this->summaryEntity->thumbnail->setWidth(200);
+        $this->summaryEntity->thumbnail->setHeight(100);
 
         $this->ogHelper = new OgHelper();
     }

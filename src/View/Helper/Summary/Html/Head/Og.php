@@ -29,12 +29,12 @@ class Og extends AbstractHelper
 
     public function getOgImageHeight(SummaryEntity $summaryEntity) : int
     {
-        return $summaryEntity->thumbnail->height;
+        return $summaryEntity->thumbnail->getHeight();
     }
 
     public function getOgImageWidth(SummaryEntity $summaryEntity) : int
     {
-        return $summaryEntity->thumbnail->width;
+        return $summaryEntity->thumbnail->getWidth();
     }
 
     public function getOgType(SummaryEntity $summaryEntity) : string
