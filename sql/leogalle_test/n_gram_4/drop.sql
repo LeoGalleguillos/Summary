@@ -1,0 +1,1 @@
+DROP TABLE IF EXISTS `n_gram_4`;
