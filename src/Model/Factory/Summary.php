@@ -48,6 +48,11 @@ class Summary
                       ->setWebpage($webpageEntity);
 
         if (empty($array['n_grams_updated'])) {
+            $nGrams = $this->nGramsService->getNGrams($summaryEntity);
+            $this->insertNGramsService->insert(
+                $summaryEntity,
+                $nGrams
+            );
             $this->summaryNGramsUpdatedTable->updateSetNGramsUpdatedToNowWhereSummaryId(
                 $summaryEntity->getSummaryId()
             );
@@ -55,9 +60,8 @@ class Summary
             $summaryEntity->setNGramsUpdated(
                 new DateTime($array['n_grams_updated'])
             );
+            $nGrams = $this->nGramsService->getNGramsFromTables($summaryEntity);
         }
-
-        $nGrams = $this->nGramsService->getNGrams($summaryEntity);
         $summaryEntity->setNGrams($nGrams);
 
         if (empty($array['title'])) {
