@@ -35,5 +35,40 @@ class Insert
             }
             $iteration++;
         }
+
+        $iteration = 0;
+        foreach ($nGrams[3] as $key => $array) {
+            $count    = $array['count'];
+            $sequence = $array['sequence'];
+            $this->nGram3Table->insert(
+                $summaryEntity->getSummaryId(),
+                $count,
+                $sequence[0],
+                $sequence[1],
+                $sequence[2]
+            );
+            if ($iteration >= 9) {
+                break;
+            }
+            $iteration++;
+        }
+
+        $iteration = 0;
+        foreach ($nGrams[4] as $key => $array) {
+            $count    = $array['count'];
+            $sequence = $array['sequence'];
+            $this->nGram4Table->insert(
+                $summaryEntity->getSummaryId(),
+                $count,
+                $sequence[0],
+                $sequence[1],
+                $sequence[2],
+                $sequence[3]
+            );
+            if ($iteration >= 9) {
+                break;
+            }
+            $iteration++;
+        }
     }
 }
