@@ -58,7 +58,10 @@ class Module
                 SummaryService\NGrams::class => function ($serviceManager) {
                     return new SummaryService\NGrams(
                         $serviceManager->get(HtmlService\WordsOnly::class),
-                        $serviceManager->get(StringService\NGrams\SortedByCount::class)
+                        $serviceManager->get(StringService\NGrams\SortedByCount::class),
+                        $serviceManager->get(SummaryTable\NGram2::class),
+                        $serviceManager->get(SummaryTable\NGram3::class),
+                        $serviceManager->get(SummaryTable\NGram4::class)
                     );
                 },
                 SummaryService\Summary::class => function ($serviceManager) {
@@ -93,6 +96,21 @@ class Module
                 },
                 SourceTable::class => function ($serviceManager) {
                     return new SourceTable(
+                        $serviceManager->get('main')
+                    );
+                },
+                SummaryTable\NGram2::class => function ($serviceManager) {
+                    return new SummaryTable\NGram2(
+                        $serviceManager->get('main')
+                    );
+                },
+                SummaryTable\NGram3::class => function ($serviceManager) {
+                    return new SummaryTable\NGram3(
+                        $serviceManager->get('main')
+                    );
+                },
+                SummaryTable\NGram4::class => function ($serviceManager) {
+                    return new SummaryTable\NGram4(
                         $serviceManager->get('main')
                     );
                 },
