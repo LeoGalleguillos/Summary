@@ -64,6 +64,13 @@ class Module
                         $serviceManager->get(SummaryTable\NGram4::class)
                     );
                 },
+                SummaryService\NGrams\Insert::class => function ($serviceManager) {
+                    return new SummaryService\NGrams\Insert(
+                        $serviceManager->get(SummaryTable\NGram2::class),
+                        $serviceManager->get(SummaryTable\NGram3::class),
+                        $serviceManager->get(SummaryTable\NGram4::class)
+                    );
+                },
                 SummaryService\Summary::class => function ($serviceManager) {
                     return new SummaryService\Summary(
                         $serviceManager->get(SourceFactory::class),
