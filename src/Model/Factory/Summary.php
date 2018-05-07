@@ -11,6 +11,7 @@ class Summary
 {
     public function __construct(
         SummaryService\NGrams $nGramsService,
+        SummaryService\NGrams\Insert $insertNGramsService,
         SummaryService\RootRelativeUrl $rootRelativeUrlService,
         SummaryService\Title $titleService,
         SummaryTable\Summary $summaryTable,
@@ -19,6 +20,7 @@ class Summary
         WebsiteFactory\Webpage $webpageFactory
     ) {
         $this->nGramsService             = $nGramsService;
+        $this->insertNGramsService       = $insertNGramsService;
         $this->rootRelativeUrlService    = $rootRelativeUrlService;
         $this->titleService              = $titleService;
         $this->summaryTable              = $summaryTable;
