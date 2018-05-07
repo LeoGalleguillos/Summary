@@ -57,10 +57,50 @@ class NGram2Test extends TestCase
             'word1',
             'word2'
         );
-
         $this->assertSame(
             1,
             $this->nGram2Table->selectCount()
+        );
+    }
+
+    public function testSelectWhereSummaryId()
+    {
+        $generator = $this->nGram2Table->selectWhereSummaryId(1);
+        $this->assertNull($generator->current());
+
+        $this->nGram2Table->insert(
+            1,
+            100,
+            'word1',
+            'word2'
+        );
+        $this->nGram2Table->insert(
+            1,
+            50,
+            'word1',
+            'word2'
+        );
+        $generator = $this->nGram2Table->selectWhereSummaryId(1);
+        $array = [
+            'summary_id' => '1',
+            'count'      => '100',
+            'word_1'     => 'word1',
+            'word_2'     => 'word2',
+        ];
+        $this->assertSame(
+            $array,
+            $generator->current()
+        );
+        $generator->next();
+        $array = [
+            'summary_id' => '1',
+            'count'      => '50',
+            'word_1'     => 'word1',
+            'word_2'     => 'word2',
+        ];
+        $this->assertSame(
+            $array,
+            $generator->current()
         );
     }
 }
