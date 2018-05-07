@@ -98,5 +98,7 @@ class NGrams
                 'sequence' => $sequence,
             ];
         }
+
+        return $nGrams;
     }
 }
