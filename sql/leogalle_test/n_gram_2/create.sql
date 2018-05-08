@@ -5,5 +5,5 @@ CREATE TABLE `n_gram_2` (
     `word_1` varchar(255) not null,
     `word_2` varchar(255) not null,
     PRIMARY KEY (`n_gram_2_id`),
-    KEY `summary_id_count` (`summary_id`, `count`)
+    UNIQUE `summary_id_count_word_1_word_2` (`summary_id`, `count`, `word_1`, `word_2`)
 ) charset=utf8;
