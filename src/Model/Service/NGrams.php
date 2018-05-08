@@ -66,7 +66,7 @@ class NGrams
                 $array['word_1'],
             ];
             $key = implode(' ', $sequence);
-            $ngrams[1][$key] = [
+            $nGrams[1][$key] = [
                 'count' => $count,
                 'sequence' => $sequence,
             ];
@@ -82,7 +82,7 @@ class NGrams
                 $array['word_2'],
             ];
             $key = implode(' ', $sequence);
-            $ngrams[2][$key] = [
+            $nGrams[2][$key] = [
                 'count' => $count,
                 'sequence' => $sequence,
             ];
@@ -99,7 +99,7 @@ class NGrams
                 $array['word_3'],
             ];
             $key = implode(' ', $sequence);
-            $ngrams[3][$key] = [
+            $nGrams[3][$key] = [
                 'count' => $count,
                 'sequence' => $sequence,
             ];
@@ -117,7 +117,7 @@ class NGrams
                 $array['word_4'],
             ];
             $key = implode(' ', $sequence);
-            $ngrams[4][$key] = [
+            $nGrams[4][$key] = [
                 'count' => $count,
                 'sequence' => $sequence,
             ];
