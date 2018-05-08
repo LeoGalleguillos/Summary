@@ -40,6 +40,12 @@ class NGrams
         );
     }
 
+    /**
+     * Get n-grams from tables.
+     *
+     * @param SummaryEntity\Summary $summaryEntity
+     * @return array
+     */
     public function getNGramsFromTables(
         SummaryEntity\Summary $summaryEntity
     ) : array {
