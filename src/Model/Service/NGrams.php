@@ -44,9 +44,25 @@ class NGrams
         SummaryEntity\Summary $summaryEntity
     ) : array {
         $nGrams = [];
+        $nGrams[1] = [];
         $nGrams[2] = [];
         $nGrams[3] = [];
         $nGrams[4] = [];
+
+        $generator = $this->nGram1Table->selectWhereSummaryId(
+            $summaryEntity->getSummaryId()
+        );
+        foreach ($generator as $array) {
+            $count = $array['count'];
+            $sequence = [
+                $array['word_1'],
+            ];
+            $key = implode(' ', $sequence);
+            $ngrams[1][$key] = [
+                'count' => $count,
+                'sequence' => $sequence,
+            ];
+        }
 
         $generator = $this->nGram2Table->selectWhereSummaryId(
             $summaryEntity->getSummaryId()
