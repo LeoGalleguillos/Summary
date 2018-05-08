@@ -3,7 +3,6 @@ namespace LeoGalleguillos\Summary;
 
 use LeoGalleguillos\Html\Model\Service as HtmlService;
 use LeoGalleguillos\String\Model\Service as StringService;
-use LeoGalleguillos\Summary\Model\Factory\Source as SourceFactory;
 use LeoGalleguillos\Summary\Model\Factory as SummaryFactory;
 use LeoGalleguillos\Summary\Model\Factory\View\Helper\Summary\FacebookShareUrl as FacebookShareUrlHelperFactory;
 use LeoGalleguillos\Summary\Model\Factory\View\Helper\Summary\TwitterShareUrl as TwitterShareUrlHelperFactory;
@@ -39,8 +38,8 @@ class Module
     {
         return [
             'factories' => [
-                SourceFactory::class => function ($serviceManager) {
-                    return new SourceFactory(
+                SummaryFactory\Source::class => function ($serviceManager) {
+                    return new SummaryFactory\Source(
                         $serviceManager->get(SourceTable::class)
                     );
                 },
@@ -76,7 +75,7 @@ class Module
                 },
                 SummaryService\Summary::class => function ($serviceManager) {
                     return new SummaryService\Summary(
-                        $serviceManager->get(SourceFactory::class),
+                        $serviceManager->get(SummaryFactory\Source::class),
                         $serviceManager->get(SourceTable::class)
                     );
                 },
