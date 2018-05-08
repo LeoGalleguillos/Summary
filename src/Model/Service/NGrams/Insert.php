@@ -18,6 +18,12 @@ class Insert
         $this->nGram4Table = $nGram4Table;
     }
 
+    /**
+     * Insert
+     *
+     * @param SummaryEntity\Summary $summaryEntity
+     * @param array $nGrams
+     */
     public function insert(
         SummaryEntity\Summary $summaryEntity,
         array $nGrams
