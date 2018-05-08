@@ -60,6 +60,7 @@ class Module
                     return new SummaryService\NGrams(
                         $serviceManager->get(HtmlService\WordsOnly::class),
                         $serviceManager->get(StringService\NGrams\SortedByCount::class),
+                        $serviceManager->get(SummaryTable\NGram1::class),
                         $serviceManager->get(SummaryTable\NGram2::class),
                         $serviceManager->get(SummaryTable\NGram3::class),
                         $serviceManager->get(SummaryTable\NGram4::class)

@@ -18,6 +18,9 @@ class NGramsTest extends TestCase
         $this->nGramsSortedByCountService = $this->createMock(
             StringService\NGrams\SortedByCount::class
         );
+        $this->nGram1TableMock = $this->createMock(
+            SummaryTable\NGram1::class
+        );
         $this->nGram2TableMock = $this->createMock(
             SummaryTable\NGram2::class
         );
@@ -30,6 +33,7 @@ class NGramsTest extends TestCase
         $this->nGramsService = new SummaryService\NGrams(
             $this->wordsOnlyService,
             $this->nGramsSortedByCountService,
+            $this->nGram1TableMock,
             $this->nGram2TableMock,
             $this->nGram3TableMock,
             $this->nGram4TableMock

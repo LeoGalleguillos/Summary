@@ -12,12 +12,14 @@ class NGrams
     public function __construct(
         HtmlService\WordsOnly $wordsOnlyService,
         StringService\NGrams\SortedByCount $nGramsSortedByCountService,
+        SummaryTable\NGram1 $nGram1Table,
         SummaryTable\NGram2 $nGram2Table,
         SummaryTable\NGram3 $nGram3Table,
         SummaryTable\NGram4 $nGram4Table
     ) {
         $this->wordsOnlyService           = $wordsOnlyService;
         $this->nGramsSortedByCountService = $nGramsSortedByCountService;
+        $this->nGram1Table                = $nGram1Table;
         $this->nGram2Table                = $nGram2Table;
         $this->nGram3Table                = $nGram3Table;
         $this->nGram4Table                = $nGram4Table;
