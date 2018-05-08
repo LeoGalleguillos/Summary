@@ -67,6 +67,7 @@ class Module
                 },
                 SummaryService\NGrams\Insert::class => function ($serviceManager) {
                     return new SummaryService\NGrams\Insert(
+                        $serviceManager->get(SummaryTable\NGram1::class),
                         $serviceManager->get(SummaryTable\NGram2::class),
                         $serviceManager->get(SummaryTable\NGram3::class),
                         $serviceManager->get(SummaryTable\NGram4::class)
@@ -104,6 +105,11 @@ class Module
                 },
                 SourceTable::class => function ($serviceManager) {
                     return new SourceTable(
+                        $serviceManager->get('main')
+                    );
+                },
+                SummaryTable\NGram1::class => function ($serviceManager) {
+                    return new SummaryTable\NGram1(
                         $serviceManager->get('main')
                     );
                 },

@@ -10,6 +10,9 @@ class InsertTest extends TestCase
 {
     protected function setUp()
     {
+        $this->nGram1TableMock = $this->createMock(
+            SummaryTable\NGram1::class
+        );
         $this->nGram2TableMock = $this->createMock(
             SummaryTable\NGram2::class
         );
@@ -20,6 +23,7 @@ class InsertTest extends TestCase
             SummaryTable\NGram4::class
         );
         $this->insertNGramsService = new SummaryService\NGrams\Insert(
+            $this->nGram1TableMock,
             $this->nGram2TableMock,
             $this->nGram3TableMock,
             $this->nGram4TableMock
