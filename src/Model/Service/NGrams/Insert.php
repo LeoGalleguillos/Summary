@@ -26,7 +26,7 @@ class Insert
         foreach ($nGrams[1] as $key => $array) {
             $count    = $array['count'];
             $sequence = $array['sequence'];
-            $this->nGram2Table->insert(
+            $this->nGram1Table->insert(
                 $summaryEntity->getSummaryId(),
                 $count,
                 $sequence[0]
