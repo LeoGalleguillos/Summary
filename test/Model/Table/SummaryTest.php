@@ -92,12 +92,32 @@ class SummaryTest extends TestCase
         );
     }
 
+    public function testSelectMaxWebpageId()
+    {
+        $this->summaryTable->insert(
+            1,
+            'Title'
+        );
+        $this->summaryTable->insert(
+            99,
+            'Title'
+        );
+        $this->summaryTable->insert(
+            2,
+            'Title'
+        );
+
+        $this->assertSame(
+            99,
+            $this->summaryTable->selectMaxWebpageId()
+        );
+    }
+
     public function testSelectWhereSummaryId()
     {
         $this->summaryTable->insert(
             1,
             'Title'
-
         );
 
         $arrayObject = [
