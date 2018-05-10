@@ -61,6 +61,19 @@ class Summary
     }
 
     /**
+     * @return int
+     */
+    public function selectMaxWebpageId() : int
+    {
+        $sql = '
+            SELECT MAX(`summary`.`webpage_id`) AS `webpage_id`
+              FROM `summary`
+                 ;
+        ';
+        return (int) $this->adapter->query($sql)->execute()->current()['webpage_id'];
+    }
+
+    /**
      * @return array
      */
     public function selectWhereSummaryId($summaryId) : array
