@@ -52,9 +52,11 @@ class SummaryTest extends TestCase
             1,
             'Title'
         );
-
+        $this->summaryTable->insert(
+            2
+        );
         $this->assertSame(
-            1,
+            2,
             $this->summaryTable->selectCount()
         );
     }
