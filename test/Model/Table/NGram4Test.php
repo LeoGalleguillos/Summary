@@ -51,7 +51,7 @@ class NGram4Test extends TestCase
 
     public function testInsert()
     {
-        $this->nGram4Table->insert(
+        $this->nGram4Table->insertIgnore(
             1,
             2,
             'word1',

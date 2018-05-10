@@ -51,7 +51,7 @@ class NGram2Test extends TestCase
 
     public function testInsert()
     {
-        $this->nGram2Table->insert(
+        $this->nGram2Table->insertIgnore(
             1,
             2,
             'word1',
@@ -68,13 +68,13 @@ class NGram2Test extends TestCase
         $generator = $this->nGram2Table->selectWhereSummaryId(1);
         $this->assertNull($generator->current());
 
-        $this->nGram2Table->insert(
+        $this->nGram2Table->insertIgnore(
             1,
             100,
             'word1',
             'word2'
         );
-        $this->nGram2Table->insert(
+        $this->nGram2Table->insertIgnore(
             1,
             50,
             'word1',

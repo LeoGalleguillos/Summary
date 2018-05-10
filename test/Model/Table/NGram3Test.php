@@ -51,7 +51,7 @@ class NGram3Test extends TestCase
 
     public function testInsert()
     {
-        $this->nGram3Table->insert(
+        $this->nGram3Table->insertIgnore(
             1,
             2,
             'word1',

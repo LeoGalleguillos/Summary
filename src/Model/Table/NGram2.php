@@ -14,14 +14,14 @@ class NGram2
     /**
      * @return int Primary key
      */
-    public function insert(
+    public function insertIgnore(
         int $summaryId,
         int $count,
         string $word1,
         string $word2
     ) : int {
         $sql = '
-            INSERT
+            INSERT IGNORE
               INTO `n_gram_2` (`summary_id`, `count`, `word_1`, `word_2`)
             VALUES (?, ?, ?, ?)
                  ;

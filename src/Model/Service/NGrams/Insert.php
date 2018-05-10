@@ -32,7 +32,7 @@ class Insert
         foreach ($nGrams[1] as $key => $array) {
             $count    = $array['count'];
             $sequence = $array['sequence'];
-            $this->nGram1Table->insert(
+            $this->nGram1Table->insertIgnore(
                 $summaryEntity->getSummaryId(),
                 $count,
                 $sequence[0]
@@ -47,7 +47,7 @@ class Insert
         foreach ($nGrams[2] as $key => $array) {
             $count    = $array['count'];
             $sequence = $array['sequence'];
-            $this->nGram2Table->insert(
+            $this->nGram2Table->insertIgnore(
                 $summaryEntity->getSummaryId(),
                 $count,
                 $sequence[0],
@@ -63,7 +63,7 @@ class Insert
         foreach ($nGrams[3] as $key => $array) {
             $count    = $array['count'];
             $sequence = $array['sequence'];
-            $this->nGram3Table->insert(
+            $this->nGram3Table->insertIgnore(
                 $summaryEntity->getSummaryId(),
                 $count,
                 $sequence[0],
@@ -80,7 +80,7 @@ class Insert
         foreach ($nGrams[4] as $key => $array) {
             $count    = $array['count'];
             $sequence = $array['sequence'];
-            $this->nGram4Table->insert(
+            $this->nGram4Table->insertIgnore(
                 $summaryEntity->getSummaryId(),
                 $count,
                 $sequence[0],
