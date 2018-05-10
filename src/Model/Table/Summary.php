@@ -16,7 +16,7 @@ class Summary
      */
     public function insert(
         int $webpageId,
-        string $title
+        string $title = null
     ) {
         $sql = '
             INSERT
