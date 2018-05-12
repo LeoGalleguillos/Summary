@@ -42,6 +42,8 @@ class Summary
                  , `summary`.`title`
                  , `summary`.`n_grams_updated`
               FROM `summary`
+             ORDER
+                BY `summary`.`summary_id` DESC
                  ;
         ';
         foreach ($this->adapter->query($sql)->execute() as $array) {
